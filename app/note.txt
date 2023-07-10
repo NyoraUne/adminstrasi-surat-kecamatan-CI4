@@ -1,0 +1,154 @@
+<?= $this->include('auth/head'); ?>
+
+                            <!-- Modal -->
+
+                            <div class="modal fade" id="penduduk<?= $pen['nik_penduduk']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <form action="/Penduduk/simup" method="post">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">ID Penduduk : <?= $pen['id_penduduk']; ?></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input editdata" type="checkbox" id="editdata">
+                                                            <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                                Edit Data
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="card-body">
+                                                        <!-- isi modal -->
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <!-- input -->
+                                                                Nik
+                                                                <div class="input-group mb-2">
+                                                                    <input name="id" type="text" id="nik" class="form-control" placeholder="ID Penduduk" value="<?= $pen['id_penduduk']; ?>" hidden>
+                                                                    <input name="niks" type="text" id="nik" class="form-control" placeholder="Nik Penduduk" value="<?= $pen['nik_penduduk']; ?>" disabled required>
+                                                                    <input name="nik" type="text" id="nik" class="form-control" placeholder="Nik Penduduk" value="<?= $pen['nik_penduduk']; ?>" hidden>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Tempat Lahir
+                                                                <div class="input-group mb-2">
+                                                                    <input name="ttl" id="ttl" type="text" class="form-control edit" placeholder="Tempat Lahir " value="<?= $pen['tempat_lahir_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Jenis Kelamin
+                                                                <div class="input-group mb-2">
+                                                                    <select name="jk" id="jk" class="form-select edit" disabled required>
+                                                                        <option value="<?= $pen['jenis_kelamin_penduduk']; ?>" selected><?= $pen['jenis_kelamin_penduduk']; ?></option>
+                                                                        <option value="Laki-Laki">Laki-Laki</option>
+                                                                        <option value="Perempuan">Perempuan</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Pekerjaan
+                                                                <div class="input-group mb-2">
+                                                                    <input name="pekerjaan" id="pekerjaan" type="text" class="form-control edit" placeholder="Pekerjaan " value="<?= $pen['pekerjaan_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Status Perkawinan
+                                                                <div class="input-group mb-2">
+                                                                    <select name="stkawin" id="stkawin" class="form-select edit" disabled required>
+                                                                        <option value="<?= $pen['status_perkawinan_penduduk']; ?>" selected><?= $pen['status_perkawinan_penduduk']; ?></option>
+                                                                        <option value="Lajang">Lajang</option>
+                                                                        <option value="Sudah Menikah">Sudah Menikah</option>
+                                                                        <option value="Sudah Cerai">Sudah Cerai</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Nomor Telephone
+                                                                <div class="input-group mb-2">
+                                                                    <input name="notelp" id="notelp" type="text" class="form-control edit" placeholder="No Telephone " value="<?= $pen['no_telp_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+
+                                                            </div>
+                                                            <div class="col">
+                                                                <!-- input -->
+                                                                Nama
+                                                                <div class="input-group mb-2">
+                                                                    <input name="nama" id="nama" type="text" class="form-control edit" placeholder="Nama" value="<?= $pen['nama_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Tanggal Lahir
+                                                                <div class="input-group mb-2">
+                                                                    <input name="tgll" id="tgll" type="date" class="form-control edit" value="<?= $pen['tgl_lahir_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Agama
+                                                                <div class="input-group mb-2">
+                                                                    <select name="agama" id="agama" class="form-select edit" disabled required>
+                                                                        <option value="<?= $pen['agama_penduduk']; ?>" selected><?= $pen['agama_penduduk']; ?></option>
+                                                                        <option value="Islam">Islam</option>
+                                                                        <option value="Protestan">Protestan</option>
+                                                                        <option value="Katolik">Katolik</option>
+                                                                        <option value="Hindu">Hindu</option>
+                                                                        <option value="Budha">Budha</option>
+                                                                        <option value="Konghucu">Konghucu</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Alamat
+                                                                <div class="input-group mb-2">
+                                                                    <input name="alamat" id="alamat" type="text" class="form-control edit" placeholder="Alamat" value="<?= $pen['alamat_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Email
+                                                                <div class="input-group mb-2">
+                                                                    <input name="email" id="email" type="text" class="form-control edit" placeholder="Email " value="<?= $pen['email_penduduk']; ?>" disabled required>
+                                                                </div>
+                                                                <!-- input end -->
+                                                                <!-- input -->
+                                                                Foto
+                                                                <div class="input-group mb-2">
+                                                                    <input name="foto" id="foto" type="file" class="form-control edit" value="<?= $pen['foto_penduduk']; ?>" placeholder="Foto" disabled>
+                                                                </div>
+                                                                <!-- input end -->
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- end isi modal -->
+
+
+
+
+
+                                                         <table id="datatablesSimple">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>

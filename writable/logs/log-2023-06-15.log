@@ -1,0 +1,525 @@
+INFO - 2023-06-15 02:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:26:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:27:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 02:33:41 --> mysqli_sql_exception: Unknown column 'id_skk' in 'where clause' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(1065): CodeIgniter\Model->doDelete()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kk.php(173): CodeIgniter\BaseModel->delete()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kk->delsur()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 02:33:41 --> Unknown column 'id_skk' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1065): CodeIgniter\Model->doDelete()
+ 7 APPPATH/Controllers/Kk.php(173): CodeIgniter\BaseModel->delete()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->delsur()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:33:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 02:36:51 --> mysqli_sql_exception: Unknown column 'id_skktp' in 'where clause' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kk.php(163): CodeIgniter\BaseModel->first()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kk->psr()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 02:36:51 --> Unknown column 'id_skktp' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Kk.php(163): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:37:21 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:38:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:38:28 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:38:31 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:39:34 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:40:15 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:41:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:41:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 02:41:06 --> Undefined array key "no_surat_ktp"
+in APPPATH/Views/user/skktp/print_surat.php on line 84.
+ 1 APPPATH/Views/user/skktp/print_surat.php(84): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/skktp/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 02:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:42:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 02:42:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:06:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 03:06:01 --> Undefined array key "keperluan_skk    "
+in APPPATH/Views/user/kk/print_surat.php on line 113.
+ 1 APPPATH/Views/user/kk/print_surat.php(113): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/kk/print_surat.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kk.php(168): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kk->psr()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 03:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:06:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:07:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:07:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:08:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:22:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:24:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:24:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:25:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:26:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:26:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:28:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:28:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:28:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:34:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:35:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:36:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 03:37:35 --> Call to undefined method CodeIgniter\HTTP\RedirectResponse::detailk()
+in APPPATH/Controllers/Kelahiran.php on line 51.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->tbhkel()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 03:39:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 03:39:41 --> Array to string conversion
+in APPPATH/Controllers/Kelahiran.php on line 51.
+ 1 APPPATH/Controllers/Kelahiran.php(51): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->tbhkel()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 03:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:43:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:50:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:52:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:53:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:53:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:56:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 03:59:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:00:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:12:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:13:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:13:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:14:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:17:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:18:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:18:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:23:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:24:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 04:25:39 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Penduduk.php(33): CodeIgniter\HTTP\Files\UploadedFile->move()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\penduduk->simpen()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 04:26:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:27:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:28:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:51:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:51:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:56:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 04:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 04:59:07 --> mysqli_sql_exception: Unknown column 'id_ayah.skkelahiran' in 'on clause' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kelahiran.php(62): CodeIgniter\BaseModel->first()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 04:59:07 --> Unknown column 'id_ayah.skkelahiran' in 'on clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Kelahiran.php(62): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 04:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 04:59:23 --> Trying to access array offset on value of type null
+in APPPATH/Views/user/kelahiran/detail_kelahiran.php on line 5.
+ 1 APPPATH/Views/user/kelahiran/detail_kelahiran.php(5): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/kelahiran/detail_kelahiran.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Kelahiran.php(77): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 04:59:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:00:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 05:01:07 --> mysqli_sql_exception: Unknown column 'skkelahiran.id_penduduk' in 'on clause' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kelahiran.php(63): CodeIgniter\BaseModel->first()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 05:01:07 --> Unknown column 'skkelahiran.id_penduduk' in 'on clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Kelahiran.php(63): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 05:02:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:04:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:06:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 05:10:33 --> mysqli_sql_exception: Unknown column 'ayah.nama' in 'field list' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kelahiran.php(64): CodeIgniter\BaseModel->first()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 05:10:33 --> Unknown column 'ayah.nama' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Kelahiran.php(64): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 05:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-06-15 05:14:18 --> mysqli_sql_exception: Unknown column 'ayah.nama' in 'field list' in /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /var/www/html/CI4/Yuswandy_19630317/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /var/www/html/CI4/Yuswandy_19630317/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /var/www/html/CI4/Yuswandy_19630317/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/CI4/Yuswandy_19630317/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /var/www/html/CI4/Yuswandy_19630317/app/Controllers/Kelahiran.php(64): CodeIgniter\BaseModel->first()
+#7 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+#8 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /var/www/html/CI4/Yuswandy_19630317/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /var/www/html/CI4/Yuswandy_19630317/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/CI4/Yuswandy_19630317/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-15 05:14:18 --> Unknown column 'ayah.nama' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Kelahiran.php(64): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 05:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 05:18:19 --> Undefined array key "nama_penduduk"
+in APPPATH/Views/user/kelahiran/modal_ayah.php on line 3.
+ 1 APPPATH/Views/user/kelahiran/modal_ayah.php(3): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/kelahiran/modal_ayah.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(431): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/user/kelahiran/detail_kelahiran.php(34): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH/View/View.php(213): include('/var/www/html/CI4/Yuswandy_19630317/app/Views/user/kelahiran/detail_kelahiran.php')
+ 7 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Kelahiran.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+11 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+13 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 05:19:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-15 05:22:17 --> Undefined variable $ibu1
+in APPPATH/Controllers/Kelahiran.php on line 92.
+ 1 APPPATH/Controllers/Kelahiran.php(92): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kelahiran->detailk()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/var/www/html/CI4/Yuswandy_19630317/public/index.php')
+INFO - 2023-06-15 05:23:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-15 05:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
