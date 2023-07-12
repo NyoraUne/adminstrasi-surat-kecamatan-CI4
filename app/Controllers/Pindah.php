@@ -94,5 +94,35 @@ class Pindah extends BaseController
     }
     function datang()
     {
+        $input = $this->request->getPost();
+        $penduduk = $this->Mod_penduduk
+            ->where('id_penduduk', $input['id_penduduk'])
+            ->first();
+
+        // upload gambar
+        $ktp = $this->request->getFile('ktp');
+        $data_ktp = 'KTP-' . $penduduk['slug'] . '.' . $ktp->getExtension();
+        $ktp->move(ROOTPATH . 'public/src/data', $data_ktp);
+        // dd($data_ktp);
+
+
+        $pindah = $this->request->getFile('pindah');
+        $data_pindah = 'Surat_Pindah-' . $penduduk['slug'] . '.' . $pindah->getExtension();
+        $pindah->move(ROOTPATH . 'public/src/data', $data_pindah);
+
+        $data = [
+            'id_penduduk' => $input['id_penduduk'],
+            'surat_datang' => $data_pindah,
+            'ktp_datang' => $data_ktp,
+        ];
+        $this->Mod_datang->save($data);
+
+        return redirect()->back();
+    }
+    public function showpdf($id)
+    {
+        $pdfPath = FCPATH . 'src/data/' . $id;
+        header('Content-Type: application/pdf');
+        readfile($pdfPath);
     }
 }
