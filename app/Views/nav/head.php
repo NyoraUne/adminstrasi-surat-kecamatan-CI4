@@ -78,6 +78,8 @@
                                 <a class="nav-link" href="<?= base_url('Kelahiran') ?>">Surat Kelahiran</a>
                                 <a class="nav-link" href="<?= base_url('Kematian') ?>">Surat Kematian</a>
                                 <a class="nav-link" href="<?= base_url('Pindah') ?>">Surat Pindah/Datang</a>
+                                <a class="nav-link" href="<?= base_url('Ahliwaris') ?>">Ahliwaris</a>
+                                <a class="nav-link" href="<?= base_url('Izin_Usaha') ?>">Izin Usaha</a>
                             </nav>
                         </div>
                         <!-- Menu End -->

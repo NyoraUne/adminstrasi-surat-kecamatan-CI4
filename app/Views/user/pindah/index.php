@@ -29,12 +29,12 @@
             </li>
         </ul>
 
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="tab-content " id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <?= $this->include('user/pindah/sk_pindah'); ?>
 
             </div>
-            <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <?= $this->include('user/pindah/sk_datang'); ?>
 
             </div>

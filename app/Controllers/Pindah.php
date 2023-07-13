@@ -122,7 +122,8 @@ class Pindah extends BaseController
     public function showpdf($id)
     {
         $pdfPath = FCPATH . 'src/data/' . $id;
-        header('Content-Type: application/pdf');
+        // header('Content-Type: application/pdf');
+        $this->response->setHeader('Content-Type', 'application/pdf');
         readfile($pdfPath);
     }
 }
