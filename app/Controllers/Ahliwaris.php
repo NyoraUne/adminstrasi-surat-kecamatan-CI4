@@ -110,4 +110,25 @@ class Ahliwaris extends BaseController
         $this->Mod_deahliwaris->insert($data);
         return redirect()->back();
     }
+    function print_surat($id)
+    {
+        $ahliwaris = $this->Mod_deahliwaris
+            ->select('*')
+            ->join('skahliwaris', 'skahliwaris.id_skahliwaris=de_ahliwaris.id_skahliwaris')
+            ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
+            ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+            ->first();
+
+        $var = $this->Mod_deahliwaris
+            ->select('*')
+            ->join('penduduk', 'penduduk.id_penduduk = de_ahliwaris.id_penduduk')
+            ->where('id_skahliwaris', $id)
+            ->findAll();
+        // dd($var);
+        $data = [
+            'ahliwaris' => $ahliwaris,
+            'penduduk' => $var,
+        ];
+        return view('user/ahliwaris/print_surat', $data);
+    }
 }

@@ -18,14 +18,28 @@
             font-family: Arial, sans-serif;
         }
 
-        @media print {
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
 
+        @media print {
             body {
                 margin: 20px 40px;
                 /* Atur nilai margin kanan dan kiri sesuai kebutuhan */
             }
 
-            @page :first {
+            table,
+            th,
+            td {
+                box-shadow: 1px 1px 1px 1px black;
+                /* Atur ketebalan, warna, dan jenis garis batas sesuai kebutuhan */
+            }
+        }
+
+        @media print {
+            @page {
                 margin-bottom: 0;
             }
         }
@@ -52,8 +66,6 @@
         .uline {
             text-decoration: underline;
         }
-
-        /* Tambahkan gaya lain yang dibutuhkan untuk halaman cetak */
     </style>
 </head>
 
@@ -82,73 +94,60 @@
     <h3 class="text-center bold uline ">
         Surat Keterangan Kelahiran
     </h3>
-    <div class="text-center">Nomor : <?= $detail['no_surat']; ?></div>
+    <div class="text-center">Nomor : <?= $ahliwaris['no_surat']; ?></div>
     <!-- // -------------------------------------------------------------------------------------------------------------- -->
     <!-- kalimat pertama -->
     <!-- <br> -->
     <!-- <p style="text-indent: 50px;">
     </p> -->
-    dengan ini menerangkan bahwa :
+    Menerangkan dengan ini bahwa :
     <!-- // -------------------------------------------------------------------------------------------------------------- -->
     <!-- bio data -->
     <div class="row">
         <div class="col-2"></div>
         <div class="col-4">
-            Nama Lengkap Anak <br>
-            Anak Ke <br>
+            Nama Lengkap <br>
             Jenis Kelamin <br>
-            Di Lahirkan Di <br>
-            Alamat Anak<br>
+            Tempat Tanggal Lahir <br>
+            Agama<br>
+            Pekerjaan<br>
+            Alamat<br>
         </div>
         <div class="col">
-            : <?= $detail['nama_anak']; ?><br>
-            : <?= $detail['anak_ke']; ?><br>
-            : <?= $detail['jenis_kelamin']; ?><br>
-            : <?= $detail['tempat']; ?><br>
-            : <?= $detail['alamat']; ?><br>
+            : <?= $ahliwaris['nama_penduduk']; ?><br>
+            : <?= $ahliwaris['jenis_kelamin_penduduk']; ?><br>
+            : <?= $ahliwaris['tempat_lahir_penduduk']; ?>, <?= $ahliwaris['tgl_lahir_penduduk']; ?><br>
+            : <?= $ahliwaris['agama_penduduk']; ?><br>
+            : <?= $ahliwaris['pekerjaan_penduduk']; ?><br>
+            : <?= $ahliwaris['alamat_penduduk']; ?><br>
         </div>
     </div>
     <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    Adalah anak kandung dari suami istri tersebut dibawah ini :
-    <br>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <div style="font-weight: bold;">Ayah</div>
-            Nik <br>
-            Nama <br>
-            Tempat/Tanggal Lahir <br>
-            Alamat <br>
-        </div>
-        <div class="col">
-            <br>
-            : <?= $ayah['nik_penduduk']; ?><br>
-            : <?= $ayah['nama_penduduk']; ?><br>
-            : <?= $ayah['tempat_lahir_penduduk']; ?>, <?= $ayah['tgl_lahir_penduduk']; ?><br>
-            : <?= $ayah['alamat_penduduk']; ?><br>
-        </div>
-    </div>
+    <p style="text-indent: 50px;text-align: justify;">
+        Adalah benar penduduk desa pada Kecamatan Paringin dan sudah meninggal dunia pada (<?= $ahliwaris['hari']; ?>, <?= $ahliwaris['tanggal']; ?>) di (<?= $ahliwaris['tempat']; ?>) di sebabkan (<?= $ahliwaris['sebab']; ?>) telah di kebumikan di tempat. Selanjutnya, di terangkan bahwa daftar nama berikut merupakan ahli waris yang sah dari almarhum (<?= $ahliwaris['nama_penduduk']; ?>) dan kami bertanggungjawab atas pernyataan ini.
+    </p>
+
+    <table style="width:100%">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Tempat Tanggal Lahir</th>
+            <th>Nik</th>
+            <th>Hubungan</th>
+        </tr>
+        <?php $no = 1; ?>
+        <?php foreach ($penduduk as $pe) : ?>
+            <tr>
+                <td><?= $no++; ?></td>
+                <td><?= $pe['nama_penduduk']; ?></td>
+                <td><?= $pe['tempat_lahir_penduduk']; ?>, <?= $pe['tgl_lahir_penduduk']; ?></td>
+                <td><?= $pe['nik_penduduk']; ?></td>
+                <td><?= $pe['hubungan']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
     <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <div style="font-weight: bold;">Ibu</div>
-            Nik <br>
-            Nama <br>
-            Tempat/Tanggal Lahir <br>
-            Alamat <br>
-        </div>
-        <div class="col">
-            <br>
-            : <?= $ibu['nik_penduduk']; ?><br>
-            : <?= $ibu['nama_penduduk']; ?><br>
-            : <?= $ibu['tempat_lahir_penduduk']; ?>, <?= $ibu['tgl_lahir_penduduk']; ?><br>
-            : <?= $ibu['alamat_penduduk']; ?><br>
-        </div>
-    </div>
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- kata bawah? bodo amat -->
-    <br>
     <p style="text-indent: 50px;">
         Demikian surat pengantar ini di buat dengan sebenarnya untuk dapat di pergunakan sebagaimana mestinya. atas kerjasamanya di ucapkan terimakasih.
     </p>

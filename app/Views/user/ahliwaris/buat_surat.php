@@ -59,7 +59,8 @@
                                             <input name="hubungan" type="text" class="form-control" placeholder="anak..">
                                         </div>
                                         <div class="float-end">
-                                            <button class="btn btn-primary">Tambah Data</button>
+                                            <a href="<?= base_url('Ahliwaris/print_surat/' . $kematian['id_skahliwaris']); ?>" class="btn btn-primary btn-sm">Cetak Surat</a>
+                                            <button class="btn btn-primary btn-sm">Tambah Data</button>
                                         </div>
                                     </form>
 
