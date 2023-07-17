@@ -47,17 +47,40 @@ class Laporan extends BaseController
     // --------------------------------------------------------------------------------------------------------------
     public function index() //LINK - Function Index
     {
-        //cek apakah ada session bernama isLogin
+        // Cek apakah ada session bernama isLogin
         if (!$this->session->has('isLogin')) {
             return redirect()->to('/auth/login');
         }
 
-        $penduduk = $this->Mod_penduduk->findAll();
+        // Ambil data laporan pindah
+        $laporan_pindah = $this->Mod_pindah->findAll();
+        // Ambil data laporan datang
+        $laporan_datang = $this->Mod_datang->findAll();
+
+        // Inisialisasi array data
         $data = [
-            'penduduk' => $penduduk,
+            ['Bulan', 'Laporan Pindah', 'Laporan Datang'],
         ];
 
-        return view('user/laporan/laporan', $data);
+        // Inisialisasi data default 0 untuk setiap bulan
+        for ($i = 1; $i <= 12; $i++) {
+            $data[$i] = [date('M', mktime(0, 0, 0, $i, 1)), 0, 0];
+        }
+
+        // Mengisi data dengan jumlah data yang sesuai
+        foreach ($laporan_pindah as $laporan) {
+            $bulan = date('n', strtotime($laporan['created_at']));
+            $data[$bulan][1] += 1;
+        }
+
+        foreach ($laporan_datang as $laporan) {
+            $bulan = date('n', strtotime($laporan['created_at']));
+            $data[$bulan][2] += 1;
+        }
+        // dd($data);
+
+        // Kirim data ke tampilan
+        return view('user/laporan/laporan', ['chart_data' => $data]);
     }
     // --------------------------------------------------------------------------------------------------------------
     function filter() //LINK - Function Input Data
@@ -65,36 +88,63 @@ class Laporan extends BaseController
         $input = $this->request->getPost();
 
 
-        if ($input['laporan'] == 1) { //Data Penduudk
-            return $this->dpend($input);
+        switch ($input['laporan']) {
+            case 1:
+                return $this->dpend($input);
+            case 2:
+                return $this->dktp($input);
+            case 3:
+                return $this->dkk($input);
+            case 4:
+                return $this->skk($input);
+            case 5:
+                return $this->skelahiran($input);
+            case 6:
+                return $this->skematian($input);
+            case 7:
+                return $this->skpindah($input);
+            case 8:
+                return $this->skdatang($input);
+            case 9:
+                return $this->skahliwaris($input);
+            case 10:
+                return $this->skizin_usaha($input);
+            default:
+                // Kasus ketika nilai $input['laporan'] tidak cocok dengan kondisi di atas
+                // Lakukan tindakan sesuai kebutuhan
+                break;
         }
-        if ($input['laporan'] == 2) { //Surat Ktp
-            return $this->dktp($input);
-        }
-        if ($input['laporan'] == 3) { //kk
-            return $this->dkk($input);
-        }
-        if ($input['laporan'] == 4) { //Surat Ktp
-            return $this->skk($input);
-        }
-        if ($input['laporan'] == 5) { //Surat Kelahiran
-            return $this->skelahiran($input);
-        }
-        if ($input['laporan'] == 6) { //izin Kematian
-            return $this->skematian($input);
-        }
-        if ($input['laporan'] == 7) { //surat pindah
-            return $this->skpindah($input);
-        }
-        if ($input['laporan'] == 8) { //tidak mampu
-            return $this->skdatang($input);
-        }
-        if ($input['laporan'] == 9) { //tidak mampu
-            return $this->skahliwaris($input);
-        }
-        if ($input['laporan'] == 10) { //tidak mampu
-            return $this->skizin_usaha($input);
-        }
+
+        // if ($input['laporan'] == 1) { //Data Penduudk
+        //     return $this->dpend($input);
+        // }
+        // if ($input['laporan'] == 2) { //Surat Ktp
+        //     return $this->dktp($input);
+        // }
+        // if ($input['laporan'] == 3) { //kk
+        //     return $this->dkk($input);
+        // }
+        // if ($input['laporan'] == 4) { //Surat Ktp
+        //     return $this->skk($input);
+        // }
+        // if ($input['laporan'] == 5) { //Surat Kelahiran
+        //     return $this->skelahiran($input);
+        // }
+        // if ($input['laporan'] == 6) { //izin Kematian
+        //     return $this->skematian($input);
+        // }
+        // if ($input['laporan'] == 7) { //surat pindah
+        //     return $this->skpindah($input);
+        // }
+        // if ($input['laporan'] == 8) { //tidak datang
+        //     return $this->skdatang($input);
+        // }
+        // if ($input['laporan'] == 9) { //tidak ahliwaris
+        //     return $this->skahliwaris($input);
+        // }
+        // if ($input['laporan'] == 10) { //tidak izin usaha
+        //     return $this->skizin_usaha($input);
+        // }
     }
     // --------------------------------------------------------------------------------------------------------------
     function dpend($input) //LINK - Function Data Laporan Penduduk

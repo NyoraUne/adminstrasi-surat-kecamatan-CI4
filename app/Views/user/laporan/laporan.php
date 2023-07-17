@@ -8,21 +8,7 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Bulan', 'Laporan Pindah', 'Laporan Datang', 'Laporang Tidak Mampu'],
-            ['jan', 1000, 400, 121],
-            ['feb', 1170, 460, 121],
-            ['mar', 660, 1120, 131],
-            ['apr', 1030, 540, 111],
-            ['may', 800, 700, 444],
-            ['jun', 1230, 820, 111],
-            ['jul', 980, 500, 2],
-            ['aug', 1200, 600, 3],
-            ['sep', 950, 400, 1214],
-            ['oct', 1100, 550, 21],
-            ['nov', 880, 700, 112],
-            ['dec', 1150, 900, 543],
-        ]);
+        var data = google.visualization.arrayToDataTable(<?= json_encode($chart_data) ?>);
 
         var options = {
             title: 'Data Chart',
