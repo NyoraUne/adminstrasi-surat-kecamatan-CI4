@@ -9,6 +9,7 @@ use App\Models\Mod_skk;
 use App\Models\Mod_kelahiran;
 use App\Models\Mod_kematian;
 use App\Models\Mod_pindah;
+use App\Models\Mod_datang;
 
 
 class Laporan extends BaseController
@@ -21,6 +22,7 @@ class Laporan extends BaseController
     protected $Mod_kelahiran;
     protected $Mod_kematian;
     protected $Mod_pindah;
+    protected $Mod_datang;
 
     public function __construct()
     {
@@ -32,6 +34,7 @@ class Laporan extends BaseController
         $this->Mod_kelahiran = new Mod_kelahiran();
         $this->Mod_kematian = new Mod_kematian();
         $this->Mod_pindah = new Mod_pindah();
+        $this->Mod_datang = new Mod_datang();
     }
     // --------------------------------------------------------------------------------------------------------------
     public function index()
@@ -76,7 +79,7 @@ class Laporan extends BaseController
             return $this->skpindah($input);
         }
         if ($input['laporan'] == 8) { //tidak mampu
-            echo ('Under Constuct 8');
+            return $this->skdatang($input);
         }
     }
     // --------------------------------------------------------------------------------------------------------------
@@ -411,5 +414,52 @@ class Laporan extends BaseController
             'msg' => $msg,
         ];
         echo view('user/laporan/datapindah', $data);
+    }
+    function skdatang($input)
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_datang
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skdatang.id_penduduk')
+                ->orderBy('skdatang.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_datang
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skdatang.id_penduduk')
+                ->where('skdatang.created_at <=', $tgl2)
+                ->orderBy('skdatang.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_datang
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skdatang.id_penduduk')
+                ->where('skdatang.created_at >=', $tgl1)
+                ->orderBy('skdatang.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_datang
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skdatang.id_penduduk')
+                ->where('skdatang.created_at >=', $tgl1)
+                ->where('skdatang.created_at <=', $tgl2)
+                ->orderBy('skdatang.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/datadatang', $data);
     }
 }

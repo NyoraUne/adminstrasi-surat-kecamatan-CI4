@@ -47,7 +47,7 @@
     $(document).ready(function() {
         $("#penduduk").select2({
             theme: 'bootstrap-5',
-            placeholder: "Silahkan Pilih KK"
+            placeholder: ""
         });
 
     });

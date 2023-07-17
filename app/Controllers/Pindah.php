@@ -114,7 +114,12 @@ class Pindah extends BaseController
             'id_penduduk' => $input['id_penduduk'],
             'surat_datang' => $data_pindah,
             'ktp_datang' => $data_ktp,
+            'no_surat' => $input['no_surat'],
+            'alamat_asal' => $input['alamat_asal'],
+            'alasan_pindah' => $input['alasan_pindah'],
         ];
+
+        // dd($data);
         $this->Mod_datang->save($data);
 
         return redirect()->back();
@@ -125,5 +130,11 @@ class Pindah extends BaseController
         // header('Content-Type: application/pdf');
         $this->response->setHeader('Content-Type', 'application/pdf');
         readfile($pdfPath);
+    }
+
+    function hapus_datang($id)
+    {
+        $this->Mod_datang->where('id_skdatang', $id)->delete();
+        return redirect()->back();
     }
 }

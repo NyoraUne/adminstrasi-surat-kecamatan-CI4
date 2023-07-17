@@ -7,7 +7,7 @@
                 <form action="<?= base_url('Ahliwaris/buat_data'); ?>" method="post">
                     <div class="row">
                         <div class="col">
-                            Nama Keluarga :
+                            Nama Keluarga Yang Sudah Meninggal :
                             <div class="input-group mb-2">
                                 <select id="id_skkematian" name="id_skkematian" class="form-select" required>
                                     <option value="" selected></option>

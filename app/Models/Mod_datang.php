@@ -13,6 +13,9 @@ class Mod_datang extends Model
         "surat_datang",
         "ktp_datang",
         "created_at",
+        "no_surat",
+        "alamat_asal",
+        "alasan_pindah",
     ];
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
