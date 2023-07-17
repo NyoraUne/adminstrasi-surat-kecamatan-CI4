@@ -56,35 +56,57 @@ class Laporan extends BaseController
             return redirect()->to('/auth/login');
         }
 
-        // Ambil data laporan pindah
         $laporan_pindah = $this->Mod_pindah->findAll();
-        // Ambil data laporan datang
         $laporan_datang = $this->Mod_datang->findAll();
+        $laporan_tmampu = $this->Mod_tidak_mampu->findAll();
+        $laporan_kematian = $this->Mod_kematian->findAll();
+        $laporan_kelahiran = $this->Mod_kelahiran->findAll();
 
-        // Inisialisasi array data
-        $data = [
+        // Inisialisasi array data untuk chart pertama
+        $chart_data1 = [
             ['Bulan', 'Laporan Pindah', 'Laporan Datang'],
         ];
+        $chart_data3 = [
+            ['Bulan', 'Laporan Kelahiran', 'Laporan Kematian'],
+        ];
+        $chart_data2 = [
+            ['Bulan', 'Laporan Tidak Mampu'],
+        ];
 
-        // Inisialisasi data default 0 untuk setiap bulan
+        // Inisialisasi data default 0 untuk setiap bulan pada chart pertama
         for ($i = 1; $i <= 12; $i++) {
-            $data[$i] = [date('M', mktime(0, 0, 0, $i, 1)), 0, 0];
+            $chart_data1[$i] = [date('M', mktime(0, 0, 0, $i, 1)), 0, 0];
+            $chart_data2[$i] = [date('M', mktime(0, 0, 0, $i, 1)), 0];
+            $chart_data3[$i] = [date('M', mktime(0, 0, 0, $i, 1)), 0, 0];
         }
 
-        // Mengisi data dengan jumlah data yang sesuai
+        // Mengisi data dengan jumlah data yang sesuai pada chart pertama
         foreach ($laporan_pindah as $laporan) {
             $bulan = date('n', strtotime($laporan['created_at']));
-            $data[$bulan][1] += 1;
+            $chart_data1[$bulan][1] += 1;
         }
 
         foreach ($laporan_datang as $laporan) {
             $bulan = date('n', strtotime($laporan['created_at']));
-            $data[$bulan][2] += 1;
+            $chart_data1[$bulan][2] += 1;
         }
-        // dd($data);
 
+        foreach ($laporan_tmampu as $laporan) {
+            $bulan = date('n', strtotime($laporan['created_at']));
+            $chart_data2[$bulan][1] += 1;
+        }
+
+        foreach ($laporan_kematian as $laporan) {
+            $bulan = date('n', strtotime($laporan['created_at']));
+            $chart_data3[$bulan][2] += 1;
+        }
+
+        foreach ($laporan_kelahiran as $laporan) {
+            $bulan = date('n', strtotime($laporan['created_at']));
+            $chart_data3[$bulan][1] += 1;
+        }
         // Kirim data ke tampilan
-        return view('user/laporan/laporan', ['chart_data' => $data]);
+        return view('user/laporan/laporan', ['chart_data1' => $chart_data1, 'chart_data2' => $chart_data2, 'chart_data3' => $chart_data3]);
     }
     // --------------------------------------------------------------------------------------------------------------
     function filter() //LINK - Function Input Data

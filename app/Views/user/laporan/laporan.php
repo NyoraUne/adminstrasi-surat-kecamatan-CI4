@@ -6,12 +6,14 @@
         'packages': ['corechart']
     });
     google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChart2);
+    google.charts.setOnLoadCallback(drawChart3);
 
     function drawChart() {
-        var data = google.visualization.arrayToDataTable(<?= json_encode($chart_data) ?>);
+        var data = google.visualization.arrayToDataTable(<?= json_encode($chart_data1) ?>);
 
         var options = {
-            title: 'Data Chart',
+            title: 'Data Kematian Dan Kelahiran',
             hAxis: {
                 title: 'Bulan',
                 titleTextStyle: {
@@ -24,6 +26,46 @@
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+
+    function drawChart2() {
+        var data = google.visualization.arrayToDataTable(<?= json_encode($chart_data2) ?>);
+
+        var options = {
+            title: 'Data Tidak Mampu',
+            hAxis: {
+                title: 'Bulan',
+                titleTextStyle: {
+                    color: '#333'
+                }
+            },
+            vAxis: {
+                minValue: 0
+            }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+    }
+
+    function drawChart3() {
+        var data = google.visualization.arrayToDataTable(<?= json_encode($chart_data3) ?>);
+
+        var options = {
+            title: 'Data Kematian Dan Kelahiran',
+            hAxis: {
+                title: 'Bulan',
+                titleTextStyle: {
+                    color: '#333'
+                }
+            },
+            vAxis: {
+                minValue: 0
+            }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div3'));
         chart.draw(data, options);
     }
 </script>

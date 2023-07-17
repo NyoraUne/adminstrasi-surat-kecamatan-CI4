@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2023 at 02:15 PM
+-- Generation Time: Jul 17, 2023 at 04:14 PM
 -- Server version: 8.0.33-0ubuntu0.22.04.2
 -- PHP Version: 8.1.2-1ubuntu2.13
 
@@ -35,13 +35,6 @@ CREATE TABLE `de_ahliwaris` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `de_ahliwaris`
---
-
-INSERT INTO `de_ahliwaris` (`id_de_ahliwaris`, `id_skahliwaris`, `id_penduduk`, `hubungan`, `created_at`) VALUES
-(1, 2, 11, 'anak', '2023-07-13 08:17:52');
-
 -- --------------------------------------------------------
 
 --
@@ -55,13 +48,6 @@ CREATE TABLE `de_kk` (
   `status` varchar(225) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `created_at_de` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `de_kk`
---
-
-INSERT INTO `de_kk` (`id_de_kk`, `id_kk`, `id_penduduk`, `status`, `created_at_de`) VALUES
-(46, 5, 10, '', '2023-07-03');
 
 -- --------------------------------------------------------
 
@@ -118,12 +104,8 @@ CREATE TABLE `penduduk` (
 --
 
 INSERT INTO `penduduk` (`id_penduduk`, `nik_penduduk`, `nama_penduduk`, `tempat_lahir_penduduk`, `tgl_lahir_penduduk`, `jenis_kelamin_penduduk`, `agama_penduduk`, `pekerjaan_penduduk`, `alamat_penduduk`, `status_perkawinan_penduduk`, `email_penduduk`, `no_telp_penduduk`, `foto_penduduk`, `slug`, `created_at_penduduk`) VALUES
-(10, '31231231231', 'Budi ardi', 'Banjarnegara', '2023-06-09', 'Perempuan', 'Islam', 'Kuli', 'JL ngkasa menuju ke bumi', 'Sudah Menikah', 'mail@gmail.com', '09342342342342', '31231231231_budi-ardi.jpg', '31231231231_budi-ardi', NULL),
-(11, '91291291323123', 'Bima Akhrya', 'Banjarbaru', '2023-06-09', 'Laki-Laki', 'Islam', 'Programer', 'JL Batu Aren', 'Lajang', 'mail@gmail.com', '080098001231', '91291291323123_bima-akhrya.jpeg', '91291291323123_bima-akhrya', '2023-06-09'),
-(14, '29312391239193', 'Malik ikthar', 'Banjarabaru', '2023-06-03', 'Laki-Laki', 'Islam', 'Programer', 'JL Batu Aren', 'Lajang', 'mail@gmail.com', '080098001231', '29312391239193_malik-ikthar.png', '29312391239193_malik-ikthar', '2023-06-15'),
-(16, '29312351219193', 'Musang', 'Banjarabaru', '2023-06-21', 'Perempuan', 'Islam', 'Programer', 'JL Batu Aren', 'Lajang', 'mail@gmail.com', '09342342342342', '29312351219193_musang.jpg', '29312351219193_musang', '2023-06-21'),
-(17, '19920201912912', 'Dimas', 'Banjarabaru', '2006-06-23', 'Laki-Laki', 'Islam', 'Koding', 'JL ngkasa menuju ke bumi', 'Lajang', 'mail@gmail.com', '085156283603', '19920201912912_dimas.png', '19920201912912_dimas', '2023-06-23'),
-(18, '2019229292929292', 'Rastia', 'Banjarabaru', '2023-06-23', 'Laki-Laki', 'Islam', 'Bengkel', 'jl ngkasa menuju ke bumi', 'Lajang', 'mail@gmail.com', '20021', '2019229292929292_rastia.jpg', '2019229292929292_rastia', '2023-06-23');
+(20, '3326160608070197', 'Malik ikthar', 'Banjarabaru', '1997-07-17', 'Laki-Laki', 'Islam', 'Programer', 'JL Batu Aren', 'Lajang', 'mail@gmail.com', '+62 872-5254-875', '3326160608070197_malik-ikthar.jpg', '3326160608070197_malik-ikthar', '2023-07-17'),
+(21, '3326160902090003', 'Bima Akhrya', 'Banjarabaru', '1974-07-18', 'Laki-Laki', 'Islam', 'Tukang  bikin rujak', 'JL ngkasa menuju ke bumi', 'Lajang', 'mail@gmail.com', '+62 881-709-712', '3326160902090003_bima-akhrya.jpg', '3326160902090003_bima-akhrya', '2023-07-17');
 
 -- --------------------------------------------------------
 
@@ -138,13 +120,6 @@ CREATE TABLE `skahliwaris` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `skahliwaris`
---
-
-INSERT INTO `skahliwaris` (`id_skahliwaris`, `id_skkematian`, `no_surat`, `created_at`) VALUES
-(2, 3, 'AW/01/BJB/2021', '2023-07-13 07:53:58');
-
 -- --------------------------------------------------------
 
 --
@@ -154,6 +129,9 @@ INSERT INTO `skahliwaris` (`id_skahliwaris`, `id_skkematian`, `no_surat`, `creat
 CREATE TABLE `skdatang` (
   `id_skdatang` int NOT NULL,
   `id_penduduk` int NOT NULL,
+  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_asal` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `alasan_pindah` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
   `surat_datang` text COLLATE utf8mb4_general_ci NOT NULL,
   `ktp_datang` text COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL
@@ -163,8 +141,8 @@ CREATE TABLE `skdatang` (
 -- Dumping data for table `skdatang`
 --
 
-INSERT INTO `skdatang` (`id_skdatang`, `id_penduduk`, `surat_datang`, `ktp_datang`, `created_at`) VALUES
-(1, 10, 'Surat Pindah-31231231231_budi-ardi.pdf', 'KTP-31231231231_budi-ardi.pdf', '2023-07-12 07:24:52');
+INSERT INTO `skdatang` (`id_skdatang`, `id_penduduk`, `no_surat`, `alamat_asal`, `alasan_pindah`, `surat_datang`, `ktp_datang`, `created_at`) VALUES
+(3, 11, 'SD/01/BJB/2023', 'Jl kenari kabupaten bantul', 'Pekerjaan', 'Surat_Pindah-91291291323123_bima-akhrya.pdf', 'KTP-91291291323123_bima-akhrya.pdf', '2023-07-17 01:59:52');
 
 -- --------------------------------------------------------
 
@@ -212,14 +190,6 @@ CREATE TABLE `skkelahiran` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `skkelahiran`
---
-
-INSERT INTO `skkelahiran` (`id_skkelahiran`, `no_surat`, `tanggal`, `tempat`, `nama_anak`, `jenis_kelamin`, `id_ayah`, `id_ibu`, `anak_ke`, `alamat`, `created_at`) VALUES
-(17, 'SK/01/Bjb/2023', '2023-06-21', 'RS Medika', 'Adinda Surya Alwadiyah Mudianti', 'Laki-laki', 11, 10, 1, 'JL Batu Aren', '2023-06-21 05:09:58'),
-(18, 'SKK/02/BJB/2023', '2023-06-22', 'RS Medika', 'Abdulah Malik', 'Laki-laki', 14, 16, 1, 'JL ngkasa menuju ke bumi', '2023-06-22 02:36:41');
-
 -- --------------------------------------------------------
 
 --
@@ -237,13 +207,6 @@ CREATE TABLE `skkematian` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `skkematian`
---
-
-INSERT INTO `skkematian` (`id_skkematian`, `no_surat`, `id_penduduk`, `hari`, `tanggal`, `sebab`, `tempat`, `created_at`) VALUES
-(3, 'SKM/01/BJB/2023', 10, 'Senin', '2023-06-13', 'Penyakit', 'Banjarbaru(Rumah)', '2023-07-13 03:42:11');
-
 -- --------------------------------------------------------
 
 --
@@ -258,13 +221,6 @@ CREATE TABLE `skkk` (
   `created_at_skk` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `skkk`
---
-
-INSERT INTO `skkk` (`id_skkk`, `no_surat_skk`, `id_penduduk`, `keperluan_skk`, `created_at_skk`) VALUES
-(2, 'SPKK/09/JUN/2024', 10, 'Penambahan anggota keluarga', '2023-06-15 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -278,13 +234,6 @@ CREATE TABLE `skktp` (
   `keperluan_ktp` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `created_at_ktp` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `skktp`
---
-
-INSERT INTO `skktp` (`id_skktp`, `no_surat_ktp`, `id_penduduk`, `keperluan_ktp`, `created_at_ktp`) VALUES
-(5, 'SKKTP/01/Banjarbaru/2023', 10, 'Pembuatan KTP', '2023-06-23');
 
 -- --------------------------------------------------------
 
@@ -303,13 +252,6 @@ CREATE TABLE `skpindah` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `skpindah`
---
-
-INSERT INTO `skpindah` (`id_skpindah`, `no_surat`, `id_penduduk`, `pindah_dari`, `alasan_pindah`, `alamat_baru`, `keluarga_ikut`, `created_at`) VALUES
-(2, 'PIN/01/BJB/2023', 10, 'JL Guntung Manggis Rt 13 Rw 02', 'Pekerjaan ', 'Jl Batu Rt 11 Rw 01, Malang', 2, '2023-07-03 02:55:43');
-
 -- --------------------------------------------------------
 
 --
@@ -318,9 +260,19 @@ INSERT INTO `skpindah` (`id_skpindah`, `no_surat`, `id_penduduk`, `pindah_dari`,
 
 CREATE TABLE `sktidakmampu` (
   `id_sktidakmampu` int NOT NULL,
-  `no_surat` int NOT NULL,
-  `id_keluarga` int NOT NULL
+  `no_surat` varchar(225) NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `keperluan` varchar(225) NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `sktidakmampu`
+--
+
+INSERT INTO `sktidakmampu` (`id_sktidakmampu`, `no_surat`, `id_penduduk`, `keperluan`, `created_at`) VALUES
+(3, 'TM/01/BJB/2023', 10, 'Masuk Kuliah', '2023-07-17 06:02:12'),
+(4, 'TM/02/BJB/2023', 11, 'Masuk Kuliah', '2023-07-17 06:31:35');
 
 -- --------------------------------------------------------
 
@@ -496,7 +448,7 @@ ALTER TABLE `kk`
 -- AUTO_INCREMENT for table `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `skahliwaris`
@@ -508,7 +460,7 @@ ALTER TABLE `skahliwaris`
 -- AUTO_INCREMENT for table `skdatang`
 --
 ALTER TABLE `skdatang`
-  MODIFY `id_skdatang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_skdatang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `skizin_usaha`
@@ -544,13 +496,13 @@ ALTER TABLE `skktp`
 -- AUTO_INCREMENT for table `skpindah`
 --
 ALTER TABLE `skpindah`
-  MODIFY `id_skpindah` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_skpindah` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sktidakmampu`
 --
 ALTER TABLE `sktidakmampu`
-  MODIFY `id_sktidakmampu` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sktidakmampu` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `skusaha`
