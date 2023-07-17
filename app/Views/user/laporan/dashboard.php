@@ -7,7 +7,7 @@
                 Laporan Pertahun
             </div>
             <div class="card-body">
-                <div id="chart_div"></div>
+                <div id="chart_div" style="height: 500px;"></div>
                 <!-- <canvas id="myAreaChart" width="100%" height="40"></canvas> -->
             </div>
         </div>

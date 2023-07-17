@@ -10,6 +10,9 @@ use App\Models\Mod_kelahiran;
 use App\Models\Mod_kematian;
 use App\Models\Mod_pindah;
 use App\Models\Mod_datang;
+use App\Models\Mod_ahliwaris;
+use App\Models\Mod_izinusaha;
+
 
 
 class Laporan extends BaseController
@@ -23,8 +26,11 @@ class Laporan extends BaseController
     protected $Mod_kematian;
     protected $Mod_pindah;
     protected $Mod_datang;
+    protected $Mod_ahliwaris;
+    protected $Mod_izinusaha;
 
-    public function __construct()
+
+    public function __construct() //LINK - Function Core
     {
         $this->session = session();
         $this->Mod_penduduk = new Mod_penduduk();
@@ -35,9 +41,11 @@ class Laporan extends BaseController
         $this->Mod_kematian = new Mod_kematian();
         $this->Mod_pindah = new Mod_pindah();
         $this->Mod_datang = new Mod_datang();
+        $this->Mod_ahliwaris = new Mod_ahliwaris();
+        $this->Mod_izinusaha = new Mod_izinusaha();
     }
     // --------------------------------------------------------------------------------------------------------------
-    public function index()
+    public function index() //LINK - Function Index
     {
         //cek apakah ada session bernama isLogin
         if (!$this->session->has('isLogin')) {
@@ -52,7 +60,7 @@ class Laporan extends BaseController
         return view('user/laporan/laporan', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function filter()
+    function filter() //LINK - Function Input Data
     {
         $input = $this->request->getPost();
 
@@ -81,9 +89,15 @@ class Laporan extends BaseController
         if ($input['laporan'] == 8) { //tidak mampu
             return $this->skdatang($input);
         }
+        if ($input['laporan'] == 9) { //tidak mampu
+            return $this->skahliwaris($input);
+        }
+        if ($input['laporan'] == 10) { //tidak mampu
+            return $this->skizin_usaha($input);
+        }
     }
     // --------------------------------------------------------------------------------------------------------------
-    function dpend($input)
+    function dpend($input) //LINK - Function Data Laporan Penduduk
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -123,7 +137,7 @@ class Laporan extends BaseController
         echo view('user/laporan/datapenduduk', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function dktp($input)
+    function dktp($input) //LINK - Function Data Laporan Surat Keterangan KTP
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -173,7 +187,7 @@ class Laporan extends BaseController
         echo view('user/laporan/dataktp', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function dkk($input)
+    function dkk($input) //LINK - Function Data Laporan KK
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -217,7 +231,7 @@ class Laporan extends BaseController
         echo view('user/laporan/datakk', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function skk($input)
+    function skk($input) //LINK - Function Data Laporan Surat KK
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -265,7 +279,7 @@ class Laporan extends BaseController
         echo view('user/laporan/suratkk', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function skelahiran($input)
+    function skelahiran($input) //LINK - Function Data Laporan Surat Kelahiran
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -320,7 +334,7 @@ class Laporan extends BaseController
         echo view('user/laporan/datakelahiran', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function skematian($input)
+    function skematian($input) //LINK - Function Data Laporan Surat Kematian ,Deathnote woakakaka XD
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -368,7 +382,7 @@ class Laporan extends BaseController
         echo view('user/laporan/datakematian', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
-    function skpindah($input)
+    function skpindah($input) //LINK - Function Data Laporan Surat Pindah
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -415,7 +429,7 @@ class Laporan extends BaseController
         ];
         echo view('user/laporan/datapindah', $data);
     }
-    function skdatang($input)
+    function skdatang($input) //LINK - Function Data Laporan Surat Datang
     {
         $tgl1 = $input['tgl1'];
         $tgl2 = $input['tgl2'];
@@ -461,5 +475,103 @@ class Laporan extends BaseController
             'msg' => $msg,
         ];
         echo view('user/laporan/datadatang', $data);
+    }
+    function skahliwaris($input) //LINK - Function Data Laporan Surat Ahliwaris
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_ahliwaris
+                ->select('*')
+                ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
+                ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+                ->orderBy('skahliwaris.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_ahliwaris
+                ->select('*')
+                ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
+                ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+                ->where('skahliwaris.created_at <=', $tgl2)
+                ->orderBy('skahliwaris.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_ahliwaris
+                ->select('*')
+                ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
+                ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+                ->where('skahliwaris.created_at >=', $tgl1)
+                ->orderBy('skahliwaris.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_ahliwaris
+                ->select('*')
+                ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
+                ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+                ->where('skahliwaris.created_at >=', $tgl1)
+                ->where('skahliwaris.created_at <=', $tgl2)
+                ->orderBy('skahliwaris.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/dataahliwaris', $data);
+    }
+    function skizin_usaha($input) //LINK - Function Data Laporan Surat Izin Usaha
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_izinusaha
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skizin_usaha.id_penduduk')
+                ->orderBy('skizin_usaha.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_izinusaha
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skizin_usaha.id_penduduk')
+                ->where('skizin_usaha.created_at <=', $tgl2)
+                ->orderBy('skizin_usaha.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_izinusaha
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skizin_usaha.id_penduduk')
+                ->where('skizin_usaha.created_at >=', $tgl1)
+                ->orderBy('skizin_usaha.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_izinusaha
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = skizin_usaha.id_penduduk')
+                ->where('skizin_usaha.created_at >=', $tgl1)
+                ->where('skizin_usaha.created_at <=', $tgl2)
+                ->orderBy('skizin_usaha.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/dataskizin_usaha', $data);
     }
 }

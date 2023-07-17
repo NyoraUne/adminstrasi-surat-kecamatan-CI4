@@ -67,6 +67,8 @@
                                     <option value="6">Laporan Kematian</option>
                                     <option value="7">Laporan Pindah</option>
                                     <option value="8">Laporan Datang</option>
+                                    <option value="9">Laporan Ahliwaris</option>
+                                    <option value="10">Laporan Izin Usaha</option>
                                 </select>
                             </div>
                             <!-- Input Data End -->
