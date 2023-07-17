@@ -22,11 +22,16 @@ class penduduk extends BaseController
     // -----------------------------------------------------------------------
     public function index()
     {
-        $var = $this->Mod_kk->findAll();
-        $data = [
-            'data_kk' => $var
-        ];
-        return view('user/penduduk/penduduk', $data);
+        //cek apakah ada session bernama isLogin
+        if (!$this->session->has('isLogin')) {
+            return redirect()->to('/Auth/login');
+        }
+
+        //cek role dari session
+        if ($this->session->get('role') != 1) {
+            return redirect()->to('/usera');
+        }
+        return view('user/penduduk/penduduk');
     }
     // -----------------------------------------------------------------------
     public function simpen()

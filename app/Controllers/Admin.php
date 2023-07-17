@@ -19,7 +19,7 @@ class Admin extends BaseController
 
         //cek role dari session
         if ($this->session->get('role') != 1) {
-            return redirect()->to('/user');
+            return redirect()->to('/usera');
         }
 
         return view('user/index');

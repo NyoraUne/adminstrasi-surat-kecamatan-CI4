@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2023 at 11:14 AM
+-- Generation Time: Jul 16, 2023 at 02:15 PM
 -- Server version: 8.0.33-0ubuntu0.22.04.2
 -- PHP Version: 8.1.2-1ubuntu2.13
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `yuswandy_19630317`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `de_ahliwaris`
+--
+
+CREATE TABLE `de_ahliwaris` (
+  `id_de_ahliwaris` int NOT NULL,
+  `id_skahliwaris` int NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `hubungan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `de_ahliwaris`
+--
+
+INSERT INTO `de_ahliwaris` (`id_de_ahliwaris`, `id_skahliwaris`, `id_penduduk`, `hubungan`, `created_at`) VALUES
+(1, 2, 11, 'anak', '2023-07-13 08:17:52');
 
 -- --------------------------------------------------------
 
@@ -107,6 +128,26 @@ INSERT INTO `penduduk` (`id_penduduk`, `nik_penduduk`, `nama_penduduk`, `tempat_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `skahliwaris`
+--
+
+CREATE TABLE `skahliwaris` (
+  `id_skahliwaris` int NOT NULL,
+  `id_skkematian` int NOT NULL,
+  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `skahliwaris`
+--
+
+INSERT INTO `skahliwaris` (`id_skahliwaris`, `id_skkematian`, `no_surat`, `created_at`) VALUES
+(2, 3, 'AW/01/BJB/2021', '2023-07-13 07:53:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `skdatang`
 --
 
@@ -117,6 +158,39 @@ CREATE TABLE `skdatang` (
   `ktp_datang` text COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `skdatang`
+--
+
+INSERT INTO `skdatang` (`id_skdatang`, `id_penduduk`, `surat_datang`, `ktp_datang`, `created_at`) VALUES
+(1, 10, 'Surat Pindah-31231231231_budi-ardi.pdf', 'KTP-31231231231_budi-ardi.pdf', '2023-07-12 07:24:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skizin_usaha`
+--
+
+CREATE TABLE `skizin_usaha` (
+  `id_skizin_usaha` int NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_usaha` text COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal_ajuan` date NOT NULL,
+  `kontak_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `status_izin` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `skizin_usaha`
+--
+
+INSERT INTO `skizin_usaha` (`id_skizin_usaha`, `id_penduduk`, `no_surat`, `nama_usaha`, `alamat_usaha`, `jenis_usaha`, `tanggal_ajuan`, `kontak_usaha`, `status_izin`, `created_at`) VALUES
+(2, 10, 'I.US/01/BJB/2013', 'Restoran Berkah', 'Jl Batu No. 43', 'Restoran', '2023-07-16', '+62 833-8328-663', 'Diajukan', '2023-07-16 02:19:41');
 
 -- --------------------------------------------------------
 
@@ -168,7 +242,7 @@ CREATE TABLE `skkematian` (
 --
 
 INSERT INTO `skkematian` (`id_skkematian`, `no_surat`, `id_penduduk`, `hari`, `tanggal`, `sebab`, `tempat`, `created_at`) VALUES
-(2, 'SKM/01/BJB/2023', 10, 'Senin', '2023-06-22', 'Kena Santet', 'Jl Gotongroyong (Rumah)', '2023-06-22 04:18:44');
+(3, 'SKM/01/BJB/2023', 10, 'Senin', '2023-06-13', 'Penyakit', 'Banjarbaru(Rumah)', '2023-07-13 03:42:11');
 
 -- --------------------------------------------------------
 
@@ -293,6 +367,14 @@ INSERT INTO `user` (`id_user`, `nama_user`, `role`, `foto_user`, `username_user`
 --
 
 --
+-- Indexes for table `de_ahliwaris`
+--
+ALTER TABLE `de_ahliwaris`
+  ADD PRIMARY KEY (`id_de_ahliwaris`),
+  ADD KEY `id_skahliwaris` (`id_skahliwaris`),
+  ADD KEY `id_penduduk` (`id_penduduk`);
+
+--
 -- Indexes for table `de_kk`
 --
 ALTER TABLE `de_kk`
@@ -314,10 +396,23 @@ ALTER TABLE `penduduk`
   ADD UNIQUE KEY `nik_penduduk` (`nik_penduduk`);
 
 --
+-- Indexes for table `skahliwaris`
+--
+ALTER TABLE `skahliwaris`
+  ADD PRIMARY KEY (`id_skahliwaris`),
+  ADD KEY `id_skkematian` (`id_skkematian`);
+
+--
 -- Indexes for table `skdatang`
 --
 ALTER TABLE `skdatang`
   ADD PRIMARY KEY (`id_skdatang`);
+
+--
+-- Indexes for table `skizin_usaha`
+--
+ALTER TABLE `skizin_usaha`
+  ADD PRIMARY KEY (`id_skizin_usaha`);
 
 --
 -- Indexes for table `skkelahiran`
@@ -380,6 +475,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `de_ahliwaris`
+--
+ALTER TABLE `de_ahliwaris`
+  MODIFY `id_de_ahliwaris` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `de_kk`
 --
 ALTER TABLE `de_kk`
@@ -398,10 +499,22 @@ ALTER TABLE `penduduk`
   MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `skahliwaris`
+--
+ALTER TABLE `skahliwaris`
+  MODIFY `id_skahliwaris` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `skdatang`
 --
 ALTER TABLE `skdatang`
-  MODIFY `id_skdatang` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skdatang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `skizin_usaha`
+--
+ALTER TABLE `skizin_usaha`
+  MODIFY `id_skizin_usaha` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `skkelahiran`
@@ -413,7 +526,7 @@ ALTER TABLE `skkelahiran`
 -- AUTO_INCREMENT for table `skkematian`
 --
 ALTER TABLE `skkematian`
-  MODIFY `id_skkematian` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_skkematian` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `skkk`
@@ -456,11 +569,24 @@ ALTER TABLE `user`
 --
 
 --
+-- Constraints for table `de_ahliwaris`
+--
+ALTER TABLE `de_ahliwaris`
+  ADD CONSTRAINT `de_ahliwaris_ibfk_1` FOREIGN KEY (`id_skahliwaris`) REFERENCES `skahliwaris` (`id_skahliwaris`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `de_ahliwaris_ibfk_2` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `de_kk`
 --
 ALTER TABLE `de_kk`
   ADD CONSTRAINT `de_kk_ibfk_1` FOREIGN KEY (`id_kk`) REFERENCES `kk` (`id_kk`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `de_kk_ibfk_2` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `skahliwaris`
+--
+ALTER TABLE `skahliwaris`
+  ADD CONSTRAINT `skahliwaris_ibfk_1` FOREIGN KEY (`id_skkematian`) REFERENCES `skkematian` (`id_skkematian`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `skkelahiran`

@@ -49,17 +49,7 @@
                                 <input name="notelp" type="text" class="form-control" placeholder="No Telephone ">
                             </div>
                             <!-- input end -->
-                            <!-- input  -->
-                            Pilih KK
-                            <div class="input-group mb-3">
-                                <select id="kk" name="id_kk" class="form-select">
-                                    <option value=""></option>
-                                    <?php foreach ($data_kk as $kk) : ?>
-                                        <option value="<?= $kk['id_kk']; ?>"><?= $kk['no_kk']; ?> - <?= $kk['rtrw_kk']; ?> - <?= $kk['desa_kk']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <!-- input end -->
+
 
                         </div>
                         <div class="col">
