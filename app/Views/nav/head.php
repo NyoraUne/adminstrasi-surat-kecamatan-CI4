@@ -80,6 +80,7 @@
                                 <a class="nav-link" href="<?= base_url('Pindah') ?>">Surat Pindah/Datang</a>
                                 <a class="nav-link" href="<?= base_url('Ahliwaris') ?>">Surat Ahliwaris</a>
                                 <a class="nav-link" href="<?= base_url('Izin_Usaha') ?>">Surat Izin Usaha</a>
+                                <a class="nav-link" href="<?= base_url('tidak_mampu') ?>">Surat Tidak Mampu</a>
                             </nav>
                         </div>
                         <!-- Menu End -->
