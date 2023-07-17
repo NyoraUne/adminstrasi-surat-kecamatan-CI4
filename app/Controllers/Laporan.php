@@ -12,6 +12,8 @@ use App\Models\Mod_pindah;
 use App\Models\Mod_datang;
 use App\Models\Mod_ahliwaris;
 use App\Models\Mod_izinusaha;
+use App\Models\Mod_tidak_mampu;
+
 
 
 
@@ -28,6 +30,7 @@ class Laporan extends BaseController
     protected $Mod_datang;
     protected $Mod_ahliwaris;
     protected $Mod_izinusaha;
+    protected $Mod_tidak_mampu;
 
 
     public function __construct() //LINK - Function Core
@@ -43,6 +46,7 @@ class Laporan extends BaseController
         $this->Mod_datang = new Mod_datang();
         $this->Mod_ahliwaris = new Mod_ahliwaris();
         $this->Mod_izinusaha = new Mod_izinusaha();
+        $this->Mod_tidak_mampu = new Mod_tidak_mampu();
     }
     // --------------------------------------------------------------------------------------------------------------
     public function index() //LINK - Function Index
@@ -109,6 +113,8 @@ class Laporan extends BaseController
                 return $this->skahliwaris($input);
             case 10:
                 return $this->skizin_usaha($input);
+            case 11:
+                return $this->sktidak_mampu($input);
             default:
                 // Kasus ketika nilai $input['laporan'] tidak cocok dengan kondisi di atas
                 // Lakukan tindakan sesuai kebutuhan
@@ -623,5 +629,64 @@ class Laporan extends BaseController
             'msg' => $msg,
         ];
         echo view('user/laporan/dataskizin_usaha', $data);
+    }
+    function sktidak_mampu($input) //LINK - Function Data Laporan Surat Tidak Mampu
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_tidak_mampu
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = sktidakmampu.id_penduduk')
+                ->orderBy('sktidakmampu.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_tidak_mampu
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = sktidakmampu.id_penduduk')
+                ->where(
+                    'sktidakmampu.created_at <=',
+                    $tgl2
+                )
+                ->orderBy('sktidakmampu.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_tidak_mampu
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = sktidakmampu.id_penduduk')
+                ->where(
+                    'sktidakmampu.created_at >=',
+                    $tgl1
+                )
+                ->orderBy('sktidakmampu.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_tidak_mampu
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = sktidakmampu.id_penduduk')
+                ->where(
+                    'sktidakmampu.created_at >=',
+                    $tgl1
+                )
+                ->where(
+                    'sktidakmampu.created_at <=',
+                    $tgl2
+                )
+                ->orderBy('sktidakmampu.created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/datasktidakmampu', $data);
     }
 }

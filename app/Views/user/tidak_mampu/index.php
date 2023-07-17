@@ -59,6 +59,7 @@
                             <td><?= $tm['keperluan']; ?></td>
                             <td>
                                 <a href="<?= base_url('Tidak_mampu/detail_data/' . $tm['id_sktidakmampu']); ?>" class="btn btn-outline-info btn-ssm">Detail Data</a>
+                                <a href="<?= base_url('Tidak_mampu/hapus_data/' . $tm['id_sktidakmampu']); ?>" class="btn btn-outline-danger btn-ssm">Hapus Data</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

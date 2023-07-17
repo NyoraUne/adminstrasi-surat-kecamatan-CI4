@@ -94,4 +94,9 @@ class Tidak_mampu extends BaseController
 
         return view('user/tidak_mampu/print_surat', $data);
     }
+    function hapus_data($id)
+    {
+        $this->Mod_tidak_mampu->where('id_sktidakmampu', $id)->delete();
+        return redirect()->back();
+    }
 }

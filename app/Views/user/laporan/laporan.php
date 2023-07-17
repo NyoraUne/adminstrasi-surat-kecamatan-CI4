@@ -55,6 +55,7 @@
                                     <option value="8">Laporan Datang</option>
                                     <option value="9">Laporan Ahliwaris</option>
                                     <option value="10">Laporan Izin Usaha</option>
+                                    <option value="11">Laporan Data Tidak Mampu</option>
                                 </select>
                             </div>
                             <!-- Input Data End -->
