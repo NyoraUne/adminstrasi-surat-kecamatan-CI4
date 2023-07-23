@@ -86,6 +86,9 @@ class Pindah extends BaseController
             ->join('kk', 'de_kk.id_kk = kk.id_kk')
             ->first();
 
+
+
+        // dd($id, $pindah);
         $data = [
             'pi' => $pindah,
         ];

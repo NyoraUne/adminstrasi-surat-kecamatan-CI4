@@ -56,12 +56,13 @@
 
                                 <!-- input data -->
                                 Kontak Usaha :
+                                <input name="id_penduduk" type="text" class="form-control" value="<?= $izin['id_penduduk']; ?>" hidden>
                                 <div class="input-group mb-2 input-group-sm">
                                     <input name="kontak_usaha" type="text" class="form-control" value="<?= $izin['kontak_usaha']; ?>" required>
                                 </div>
                                 <br>
                                 <div class="float-end">
-                                    <button class="btn btn-primary btn-sm">Simpan Data</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Simpan Data</button>
                                     <a href="<?= previous_url(); ?>" class="btn btn-danger btn-sm">Kembali</a>
                                     <a href="<?= base_url('Izin_Usaha/print_surat/' . $izin['id_skizin_usaha']); ?>" class="btn btn-info btn-sm">Cetak Data</a>
                                 </div>

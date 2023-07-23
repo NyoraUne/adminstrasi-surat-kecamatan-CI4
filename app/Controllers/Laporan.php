@@ -105,6 +105,8 @@ class Laporan extends BaseController
             $bulan = date('n', strtotime($laporan['created_at']));
             $chart_data3[$bulan][1] += 1;
         }
+
+        // dd($chart_data1, $chart_data2, $chart_data3);
         // Kirim data ke tampilan
         return view('user/laporan/laporan', ['chart_data1' => $chart_data1, 'chart_data2' => $chart_data2, 'chart_data3' => $chart_data3]);
     }

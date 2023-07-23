@@ -92,6 +92,10 @@ class Izin_Usaha extends BaseController
             'kontak_usaha' => $input['kontak_usaha'],
             'status_izin' => $input['status_izin'],
         ];
+
+        $this->Mod_izinusaha->update($id, $data);
+
+        return redirect()->back();
     }
     function print_surat($id)
     {
