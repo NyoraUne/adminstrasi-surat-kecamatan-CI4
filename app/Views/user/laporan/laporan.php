@@ -98,6 +98,7 @@
                                     <option value="9">Laporan Ahliwaris</option>
                                     <option value="10">Laporan Izin Usaha</option>
                                     <option value="11">Laporan Data Tidak Mampu</option>
+                                    <option value="12">Laporan Pengajuan Masyarakat</option>
                                 </select>
                             </div>
                             <!-- Input Data End -->

@@ -13,6 +13,7 @@ use App\Models\Mod_datang;
 use App\Models\Mod_ahliwaris;
 use App\Models\Mod_izinusaha;
 use App\Models\Mod_tidak_mampu;
+use App\Models\Mod_permintaan;
 
 
 
@@ -22,6 +23,7 @@ class Laporan extends BaseController
     protected $session;
     protected $Mod_penduduk;
     protected $Mod_skktp;
+    protected $Mod_permintaan;
     protected $Mod_kk;
     protected $Mod_skk;
     protected $Mod_kelahiran;
@@ -38,6 +40,7 @@ class Laporan extends BaseController
         $this->session = session();
         $this->Mod_penduduk = new Mod_penduduk();
         $this->Mod_skktp = new Mod_skktp();
+        $this->Mod_permintaan = new Mod_permintaan();
         $this->Mod_kk = new Mod_kk();
         $this->Mod_skk = new Mod_skk();
         $this->Mod_kelahiran = new Mod_kelahiran();
@@ -139,6 +142,8 @@ class Laporan extends BaseController
                 return $this->skizin_usaha($input);
             case 11:
                 return $this->sktidak_mampu($input);
+            case 12:
+                return $this->skpermintaan($input);
             default:
                 // Kasus ketika nilai $input['laporan'] tidak cocok dengan kondisi di atas
                 // Lakukan tindakan sesuai kebutuhan
@@ -712,5 +717,52 @@ class Laporan extends BaseController
             'msg' => $msg,
         ];
         echo view('user/laporan/datasktidakmampu', $data);
+    }
+    function skpermintaan($input) //LINK - Function Data Laporan Surat Pindah
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_permintaan
+                ->select('*')
+                ->join('penduduk', 'permintaan.id_penduduk = penduduk.id_penduduk')
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_permintaan
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
+                ->where('created_at <=', $tgl2)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_permintaan
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
+                ->where('created_at >=', $tgl1)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_permintaan
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
+                ->where('created_at >=', $tgl1)
+                ->where('created_at <=', $tgl2)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/datapindah', $data);
     }
 }

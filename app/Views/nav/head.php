@@ -47,9 +47,13 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="<?= base_url('User') ?>">
+                        <a class="nav-link" href="<?= base_url('Admin') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
                             Dashboard
+                        </a>
+                        <a class="nav-link" href="<?= base_url('Pengajuan') ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                            Penajuan Masuk
                         </a>
                         <!-- Menu Start -->
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

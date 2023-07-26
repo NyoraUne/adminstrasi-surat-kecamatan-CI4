@@ -53,7 +53,7 @@
                             <!-- Input Data Start -->
                             Sebab Penduduk Meninggal
                             <div class="input-group mb-3">
-                                <input name="sebab" type="text" class="form-control" placeholder="Username">
+                                <input name="sebab" type="text" class="form-control" placeholder="Penyakit..">
                             </div>
                             <!-- Input Data End -->
 

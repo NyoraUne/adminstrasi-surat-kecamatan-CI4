@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: yuswandy_19630317
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.2
+-- Server version	8.0.33-0ubuntu0.23.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `de_ahliwaris` (
   `id_de_ahliwaris` int NOT NULL AUTO_INCREMENT,
   `id_skahliwaris` int NOT NULL,
   `id_penduduk` int NOT NULL,
-  `hubungan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `hubungan` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id_de_ahliwaris`),
   KEY `id_skahliwaris` (`id_skahliwaris`),
@@ -134,7 +134,7 @@ CREATE TABLE `penduduk` (
   `created_at_penduduk` date DEFAULT NULL,
   PRIMARY KEY (`id_penduduk`),
   UNIQUE KEY `nik_penduduk` (`nik_penduduk`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,8 +143,38 @@ CREATE TABLE `penduduk` (
 
 LOCK TABLES `penduduk` WRITE;
 /*!40000 ALTER TABLE `penduduk` DISABLE KEYS */;
-INSERT INTO `penduduk` VALUES (20,'3326160608070197','Malik ikthar','Banjarabaru','1997-07-17','Laki-Laki','Islam','Programer','JL Batu Aren','Lajang','mail@gmail.com','+62 872-5254-875','3326160608070197_malik-ikthar.jpg','3326160608070197_malik-ikthar','2023-07-17'),(21,'3326160902090003','Bima Akhrya','Banjarabaru','1974-07-18','Laki-Laki','Islam','Tukang  bikin rujak','JL ngkasa menuju ke bumi','Lajang','mail@gmail.com','+62 881-709-712','3326160902090003_bima-akhrya.jpg','3326160902090003_bima-akhrya','2023-07-17'),(23,'3326160911060005','Abdullah ilham','Banjarabaru','1992-07-03','Laki-Laki','Islam','Penjaga Kafe','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160911060005_abdullah-ilham.jpg','3326160911060005_abdullah-ilham','2023-07-17'),(25,'3326160608070060','Linda Aria Masra','Banjarabaru','1992-02-03','Perempuan','Islam','Programer','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160608070060_linda-aria-masra.jpg','3326160608070060_linda-aria-masra','2023-07-17');
+INSERT INTO `penduduk` VALUES (20,'3326160608070197','Malik ikthar','Banjarabaru','1997-07-17','Laki-Laki','Islam','Programer','JL Batu Aren','Lajang','mail@gmail.com','+62 872-5254-875','3326160608070197_malik-ikthar.jpg','3326160608070197_malik-ikthar','2023-07-17'),(21,'3326160902090003','Bima Akhrya','Banjarabaru','1974-07-18','Laki-Laki','Islam','Tukang  bikin rujak','JL ngkasa menuju ke bumi','Lajang','mail@gmail.com','+62 881-709-712','3326160902090003_bima-akhrya.jpg','3326160902090003_bima-akhrya','2023-07-17'),(23,'3326160911060005','Abdullah ilham','Banjarabaru','1992-07-03','Laki-Laki','Islam','Penjaga Kafe','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160911060005_abdullah-ilham.jpg','3326160911060005_abdullah-ilham','2023-07-17'),(25,'3326160608070060','Linda Aria Masra','Banjarabaru','1992-02-03','Perempuan','Islam','Programer','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160608070060_linda-aria-masra.jpg','3326160608070060_linda-aria-masra','2023-07-17'),(26,'','','','0000-00-00','Pilih Jenis Kelamin','Pilih Agama','','','Pilih Status Pernikahan','','','','_','2023-07-26'),(29,'332682042407928','Riska Muni','Banjarabaru','1976-06-22','Laki-Laki','Konghucu','Programer','JL Batu Aren','Sudah Menikah','jahidesek@mailinator.com','+6284534889422','','332682042407928_riska-muni','2023-07-26'),(31,'332683112893069','Aulia Kurniawan','Banjarabaru','2011-02-09','Laki-Laki','Islam','Tukang Gali Internet','JL Batu Aren','Lajang','mail@gmail.com','+6285045775974','','332683112893069_aulia-kurniawan','2023-07-26'),(32,'332679041449924','Mid Kusuma','Banjarabaru','2023-07-26','Perempuan','Katolik','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288347303146','','332679041449924_mid-kusuma','2023-07-26'),(33,'332674071215793','Mid Kurniawan','Banjarabaru','2023-07-01','Laki-Laki','Protestan','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288437923768','','332674071215793_mid-kurniawan','2023-07-26');
 /*!40000 ALTER TABLE `penduduk` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permintaan`
+--
+
+DROP TABLE IF EXISTS `permintaan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permintaan` (
+  `id_permintaan` int NOT NULL AUTO_INCREMENT,
+  `id_penduduk` int NOT NULL,
+  `pelayanan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi` text COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id_permintaan`),
+  KEY `id_penduduk` (`id_penduduk`),
+  CONSTRAINT `permintaan_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permintaan`
+--
+
+LOCK TABLES `permintaan` WRITE;
+/*!40000 ALTER TABLE `permintaan` DISABLE KEYS */;
+INSERT INTO `permintaan` VALUES (1,32,'Pembuatan Surat Izin Usaha','Pembangunan usaha jual beli ayam','Data selesai di buat dan dapat di ambil di kantor','2023-07-26 12:10:21');
+/*!40000 ALTER TABLE `permintaan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -157,7 +187,7 @@ DROP TABLE IF EXISTS `skahliwaris`;
 CREATE TABLE `skahliwaris` (
   `id_skahliwaris` int NOT NULL AUTO_INCREMENT,
   `id_skkematian` int NOT NULL,
-  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_surat` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id_skahliwaris`),
   KEY `id_skkematian` (`id_skkematian`),
@@ -185,11 +215,11 @@ DROP TABLE IF EXISTS `skdatang`;
 CREATE TABLE `skdatang` (
   `id_skdatang` int NOT NULL AUTO_INCREMENT,
   `id_penduduk` int NOT NULL,
-  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `alamat_asal` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `alasan_pindah` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `surat_datang` text COLLATE utf8mb4_general_ci NOT NULL,
-  `ktp_datang` text COLLATE utf8mb4_general_ci NOT NULL,
+  `no_surat` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_asal` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `alasan_pindah` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `surat_datang` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ktp_datang` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id_skdatang`),
   KEY `id_penduduk` (`id_penduduk`),
@@ -216,13 +246,13 @@ DROP TABLE IF EXISTS `skizin_usaha`;
 CREATE TABLE `skizin_usaha` (
   `id_skizin_usaha` int NOT NULL AUTO_INCREMENT,
   `id_penduduk` int NOT NULL,
-  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `alamat_usaha` text COLLATE utf8mb4_general_ci NOT NULL,
-  `jenis_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_surat` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_usaha` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_usaha` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis_usaha` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal_ajuan` date NOT NULL,
-  `kontak_usaha` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
-  `status_izin` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `kontak_usaha` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status_izin` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id_skizin_usaha`),
   KEY `id_penduduk` (`id_penduduk`),
@@ -472,9 +502,12 @@ CREATE TABLE `user` (
   `username_user` varchar(225) NOT NULL,
   `password_user` varchar(225) NOT NULL,
   `salt` varchar(225) NOT NULL,
+  `id_penduduk` int DEFAULT NULL,
   PRIMARY KEY (`id_user`),
-  KEY `id_role` (`role`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+  KEY `id_role` (`role`),
+  KEY `id_penduduk` (`id_penduduk`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -483,7 +516,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Admin',1,NULL,'User','1',''),(8,'admin',1,NULL,'admin','0192023a7bbd73250516f069df18b50064803f79a53895.71942189','64803f79a53895.71942189'),(9,'Andriyan',1,NULL,'anderi77','5d2cec861740461222c107900c54fd776480477a039209.88074506','6480477a039209.88074506');
+INSERT INTO `user` VALUES (8,'admin',1,NULL,'admin','0192023a7bbd73250516f069df18b50064803f79a53895.71942189','64803f79a53895.71942189',NULL),(9,'Andriyan',1,NULL,'anderi77','5d2cec861740461222c107900c54fd776480477a039209.88074506','6480477a039209.88074506',NULL),(10,'penduduk',2,NULL,'penduduk','949a6ee904175ed51039154703609c5564bde12e66aa11.43533067','64bde12e66aa11.43533067',32),(11,'user',2,NULL,'user','80ec08504af83331911f5882349af59d64c10184076241.88697555','64c10184076241.88697555',32);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -496,4 +529,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-23 11:25:20
+-- Dump completed on 2023-07-26 21:03:16

@@ -32,12 +32,12 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Admin::index');
-$routes->get('Penduduk/delpen/(:segment)', 'Penduduk::delpen/$1');
+// $routes->get('Penduduk/delpen/(:segment)', 'Penduduk::delpen/$1');
 // $routes->get('Penduduk/delpddk/(:segment)', 'Penduduk::delpddk/$1');
 // $routes->get('Nilai/(:segment)', 'Nilai::isinilai/$1');
 
-$routes->get('Auth/login', 'Auth::login');
-$routes->get('Auth/register', 'Auth::register');
+// $routes->get('Auth/login', 'Auth::login');
+// $routes->get('Auth/register', 'Auth::register');
 
 
 /*

@@ -2,7 +2,7 @@
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- head sub -->
 <h3 class="text-center bold uline ">
-    Laporan Surat Kelahiran
+    Laporan Data Permintaan Penduduk
 </h3>
 <div class="text-center">
     <?php echo $msg; ?>
@@ -15,12 +15,11 @@
             <thead class="bg-dark text-white">
                 <tr>
                     <th>No</th>
-                    <th>No Surat</th>
-                    <th>Nama Anak</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Nama Ayah</th>
-                    <th>Nama Ibu</th>
-                    <th>Lahir Pada Tanggal</th>
+                    <th>Nik</th>
+                    <th>Nama</th>
+                    <th>Permintaan</th>
+                    <th>Deskripsi </th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,29 +27,25 @@
                 <?php foreach ($variable as $pe) : ?>
                     <tr>
                         <td>
-                            <?= $n; ?>
+                            <?= $n++; ?>
                         </td>
                         <td>
-                            <?= $pe['no_surat']; ?>
+                            <?= $pe['nik_penduduk']; ?>
                         </td>
                         <td>
-                            <?= $pe['nama_anak']; ?>
+                            <?= $pe['nama_penduduk']; ?>
                         </td>
                         <td>
-                            <?= $pe['jenis_kelamin']; ?>
+                            <?= $pe['pelayanan']; ?>
+                        </td>
+                        <td>
+                            <?= $pe['deskripsi']; ?>
+                        </td>
+                        <td>
+                            <?= $pe['status']; ?>
                         </td>
 
-                        <td>
-                            <?= $pe['nama_ayah']; ?>
-                        </td>
-                        <td>
-                            <?= $pe['nama_ibu']; ?>
-                        </td>
-                        <td>
-                            <?= $pe['tanggal']; ?>
-                        </td>
                     </tr>
-                    <?php $n++; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>

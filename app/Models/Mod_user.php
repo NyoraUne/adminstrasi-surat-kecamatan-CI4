@@ -15,6 +15,7 @@ class Mod_user extends Model
         "foto_user",
         "username_user",
         "password_user",
+        "id_penduduk",
         "salt"
     ];
     protected $useTimestamps = false;

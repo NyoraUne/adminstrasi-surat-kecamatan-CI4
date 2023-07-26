@@ -65,7 +65,7 @@ class Auth extends BaseController
             'username_user' => $data['username_user'],
             'password_user' => $password,
             'salt' => $salt,
-            'role' => 1
+            'role' => 2
         ]);
 
         //arahkan ke halaman login
@@ -93,13 +93,17 @@ class Auth extends BaseController
                 //jika benar, arahkan user masuk ke aplikasi 
                 $sessLogin = [
                     'isLogin' => true,
-                    'username_user' => $user['username_user'],
+                    'id_user' => $user['id_user'],
                     'nama_user' => $user['nama_user'],
-                    'role' => $user['role']
+                    'role' => $user['role'],
+                    'username_user' => $user['username_user'],
+                    'password_user' => $user['password_user'],
+                    'salt' => $user['salt'],
+                    'id_penduduk' => $user['id_penduduk'],
                 ];
                 // dd($sessLogin);
                 $this->session->set($sessLogin);
-                return redirect()->to('/user');
+                return redirect()->to('/admin');
             }
         } else {
             //jika username tidak ditemukan, balikkan ke halaman login
