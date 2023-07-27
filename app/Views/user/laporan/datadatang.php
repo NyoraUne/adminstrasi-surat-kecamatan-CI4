@@ -1,9 +1,9 @@
 <?= $this->include('nav/head_c'); ?>
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- head sub -->
-<h3 class="text-center bold uline ">
+<h4 class="text-center uline ">
     Laporan Data Datang Penduduk
-</h3>
+</h4>
 <div class="text-center">
     <?php echo $msg; ?>
 </div>

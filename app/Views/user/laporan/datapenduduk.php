@@ -1,10 +1,12 @@
 <?= $this->include('nav/head_c'); ?>
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- head sub -->
-<h3 class="text-center bold uline ">
+<h4 class="text-center uline ">
     Laporan Data Penduduk
-</h3>
-<div class="text-center"><?php echo $msg; ?></div>
+</h4>
+<div class="text-center">
+    <?php echo $msg; ?>
+</div>
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- bio data -->
 <div class="row">

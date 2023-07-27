@@ -2,7 +2,7 @@
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- head sub -->
 <h4 class="text-center uline ">
-    Laporan Data Izin Usaha
+    Laporan Data KK
 </h4>
 <div class="text-center">
     <?php echo $msg; ?>
@@ -15,13 +15,11 @@
             <thead class="bg-dark text-white">
                 <tr>
                     <th>No</th>
-                    <th>No Surat</th>
+                    <th>No Surat KK</th>
                     <th>Nik</th>
-                    <th>Nama Pemilik</th>
-                    <th>Nama Usaha</th>
-                    <th>Jenis Usaha </th>
-                    <th>Tanggal Ajuan</th>
-                    <th>Status Izin</th>
+                    <th>Nik Penduduk</th>
+                    <th>Keperluan </th>
+                    <th>DI Buat Pada</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +30,7 @@
                             <?= $n++; ?>
                         </td>
                         <td>
-                            <?= $pe['no_surat']; ?>
+                            <?= $pe['no_surat_skk']; ?>
                         </td>
                         <td>
                             <?= $pe['nik_penduduk']; ?>
@@ -41,16 +39,10 @@
                             <?= $pe['nama_penduduk']; ?>
                         </td>
                         <td>
-                            <?= $pe['nama_usaha']; ?>,
+                            <?= $pe['keperluan_skk']; ?>
                         </td>
                         <td>
-                            <?= $pe['jenis_usaha']; ?>
-                        </td>
-                        <td>
-                            <?= $pe['tanggal_ajuan']; ?>
-                        </td>
-                        <td>
-                            <?= $pe['status_izin']; ?>
+                            <?= $pe['created_at_skk']; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

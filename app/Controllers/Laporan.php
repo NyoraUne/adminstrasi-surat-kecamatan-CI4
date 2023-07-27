@@ -190,7 +190,7 @@ class Laporan extends BaseController
 
         if (empty($tgl1) && empty($tgl2)) {
             $penduduk = $this->Mod_penduduk->orderBy('created_at_penduduk', 'desc')->findAll();
-            $msg = '';
+            $msg = 'Menampilkan Semua Data';
         } else if (empty($tgl1)) {
             $penduduk = $this->Mod_penduduk
                 ->where('created_at_penduduk <=', $tgl2)
@@ -361,7 +361,7 @@ class Laporan extends BaseController
             'variable' => $variable,
             'msg' => $msg,
         ];
-        echo view('user/laporan/suratkk', $data);
+        echo view('user/laporan/datasurkk', $data);
     }
     // --------------------------------------------------------------------------------------------------------------
     function skelahiran($input) //LINK - Function Data Laporan Surat Kelahiran
@@ -763,6 +763,6 @@ class Laporan extends BaseController
             'variable' => $variable,
             'msg' => $msg,
         ];
-        echo view('user/laporan/datapindah', $data);
+        echo view('user/laporan/datapengajuan', $data);
     }
 }

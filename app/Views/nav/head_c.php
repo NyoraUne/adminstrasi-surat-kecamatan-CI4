@@ -52,7 +52,10 @@
 
         .uline {
             text-decoration: underline;
+            margin-bottom: 0px;
         }
+
+
 
         /* Tambahkan gaya lain yang dibutuhkan untuk halaman cetak */
     </style>

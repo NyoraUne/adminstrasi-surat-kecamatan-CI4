@@ -76,6 +76,7 @@
 
     <div class="container-fluid mt-3">
         <!-- ------------------------------------------------------------- -->
+        <?= $this->include('user/laporan/dashboard'); ?>
         <div class="card">
             <div class="card-header">Filter Laporan</div>
             <div class="card-body">
@@ -125,7 +126,7 @@
             </div>
         </div>
         <!-- ------------------------------------------------------------- -->
-        <?= $this->include('user/laporan/dashboard'); ?>
+
     </div>
 
 </main>

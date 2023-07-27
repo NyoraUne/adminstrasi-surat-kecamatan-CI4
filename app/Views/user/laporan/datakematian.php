@@ -1,4 +1,10 @@
 <?= $this->include('nav/head_c'); ?>
+<h4 class="text-center uline ">
+    Laporan Surat Kematian
+</h4>
+<div class="text-center">
+    <?php echo $msg; ?>
+</div>
 <!-- // -------------------------------------------------------------------------------------------------------------- -->
 <!-- bio data -->
 <div class="row">
