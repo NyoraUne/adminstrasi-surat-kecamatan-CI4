@@ -3,15 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\Mod_permintaan;
+use App\Models\Mod_komen;
+use App\Models\Mod_file;
 
 class Pengajuan extends BaseController
 {
     protected $session;
     protected $Mod_permintaan;
+    protected $Mod_komen;
+    protected $Mod_file;
     public function __construct()
     {
         $this->session = session();
         $this->Mod_permintaan = new Mod_permintaan();
+        $this->Mod_komen = new Mod_komen();
+        $this->Mod_file = new Mod_file();
     }
 
     public function index()
@@ -27,6 +33,7 @@ class Pengajuan extends BaseController
         }
 
 
+
         $pengajuan = $this->Mod_permintaan
             ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
             ->findAll();
@@ -38,11 +45,24 @@ class Pengajuan extends BaseController
     }
     function detail($id)
     {
+
+        $file = $this->Mod_file
+            ->where('id_permintaan', $id)
+            ->findAll();
+
         $permintaan = $this->Mod_permintaan
             ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
             ->where('id_permintaan', $id)->first();
+
+        $komen = $this->Mod_komen
+            ->join('user', 'user.id_user = komentar.id_user')
+            ->where('id_permintaan', $id)
+            ->findAll();
+
         $data = [
             'permintaan' => $permintaan,
+            'file' => $file,
+            'komen' => $komen,
         ];
         return view('user/pengajuan/detail', $data);
     }
@@ -61,6 +81,43 @@ class Pengajuan extends BaseController
         ];
 
         $this->Mod_permintaan->update($id, $data);
+        return redirect()->back();
+    }
+    function seepdf($id)
+    {
+        // Path ke file PDF yang akan ditampilkan
+        $pdfFilePath = ROOTPATH . 'public/src/file/' . $id;
+
+        // dd($pdfFilePath);
+        // Cek apakah file PDF ada
+        if (file_exists($pdfFilePath)) {
+            // Baca isi file PDF
+            $pdfContent = file_get_contents($pdfFilePath);
+
+            // Tetapkan tipe respons sebagai 'application/pdf'
+            $response = $this->response->setContentType('application/pdf');
+
+            // Kirimkan isi file PDF sebagai respons ke browser
+            $response->setBody($pdfContent);
+
+            return $response;
+        } else {
+            // Tampilkan pesan error jika file tidak ditemukan
+            return 'File PDF tidak ditemukan.';
+        }
+    }
+    function add_comment($id)
+    {
+        $inv = $this->request->getPost();
+
+        $data = [
+            'id_permintaan' => $id,
+            'id_user' => $inv['id_user'],
+            'koment' => $inv['koment']
+        ];
+
+        // dd($id, $inv, $data);
+        $this->Mod_komen->insert($data);
         return redirect()->back();
     }
 }

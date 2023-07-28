@@ -4,16 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Mod_file extends Model
+class Mod_komen extends Model
 {
-    protected $table = "file";
-    protected $primaryKey = "id_file";
+    protected $table = "komentar";
+    protected $primaryKey = "id_komentar";
     protected $allowedFields = [
         "id_permintaan",
-        "data",
-        "file",
-        "deskripsi",
-        "detail",
+        "id_user",
+        "koment",
+        "created_at",
     ];
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';

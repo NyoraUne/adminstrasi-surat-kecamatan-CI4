@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Mod_penduduk;
 use App\Models\Mod_file;
 use App\Models\Mod_feedback;
+use App\Models\Mod_komen;
 use App\Models\Mod_user;
 use App\Models\Mod_permintaan;
 
@@ -13,6 +14,7 @@ class Detail_permintaan extends BaseController
     protected $session;
     protected $Mod_penduduk;
     protected $Mod_feedback;
+    protected $Mod_komen;
     protected $Mod_file;
     protected $Mod_user;
     protected $Mod_permintaan;
@@ -21,6 +23,7 @@ class Detail_permintaan extends BaseController
         $this->session = session();
         $this->Mod_penduduk = new Mod_penduduk();
         $this->Mod_permintaan = new Mod_permintaan();
+        $this->Mod_komen = new Mod_komen();
         $this->Mod_file = new Mod_file();
         $this->Mod_feedback = new Mod_feedback();
         $this->Mod_user = new Mod_user();
@@ -48,7 +51,18 @@ class Detail_permintaan extends BaseController
                 ->where('permintaan.id_penduduk', $me2['id_penduduk'])
                 ->first();
 
-            $file = $this->Mod_file->where('id_permintaan', $id)->findAll();
+            $file = $this->Mod_file
+                ->where('id_permintaan', $id)
+                ->where('detail', false)
+                ->findAll();
+
+            $komen = $this->Mod_komen
+                ->join('user', 'user.id_user = komentar.id_user')
+                ->where('id_permintaan', $id)
+                ->findAll();
+
+            // dd($komen);
+
 
             $feedback = $this->Mod_feedback->where('id_penduduk', $me2['id_penduduk'])->findAll();
             $data = [
@@ -56,6 +70,7 @@ class Detail_permintaan extends BaseController
                 'permintaan' => $permintaan,
                 'feedback' => $feedback,
                 'file' => $file,
+                'komen' => $komen,
             ];
             // dd($data);
 
@@ -78,6 +93,7 @@ class Detail_permintaan extends BaseController
             ->where('permintaan.id_permintaan', $id)
             ->first();
 
+
         $input = $this->request->getPost();
         $date = date("Ymd-h:i:sa");
 
@@ -91,6 +107,7 @@ class Detail_permintaan extends BaseController
             'id_permintaan' => $id,
             'file' => $FileName,
             'data' => $input['data'],
+            'detail' => false,
             'deskripsi' => $input['deskripsi'],
         ];
 
@@ -123,6 +140,20 @@ class Detail_permintaan extends BaseController
     function hapus_file($id)
     {
         $this->Mod_file->delete($id);
+        return redirect()->back();
+    }
+    function add_comment($id)
+    {
+        $inv = $this->request->getPost();
+
+        $data = [
+            'id_permintaan' => $id,
+            'id_user' => $inv['id_user'],
+            'koment' => $inv['koment']
+        ];
+
+        // dd($id, $inv, $data);
+        $this->Mod_komen->insert($data);
         return redirect()->back();
     }
 }
