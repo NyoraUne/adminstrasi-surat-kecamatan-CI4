@@ -33,107 +33,18 @@
     <hr>
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pelayanan</button>
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Profil</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profil</button>
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Layanan</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Feedback</button>
         </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <!-- //ANCHOR - Tab 1 -->
-
-            <div class="card">
-                <div class="card-body">
-                    <h4>
-                        Menu Pelayanan
-                    </h4>
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-4">
-                            <form action="<?= base_url('User/proses/' . $data_user['id_penduduk']); ?>" method="post" enctype="multipart/form-data">
-                                Silahkan Pilih Pelayanan :
-                                <div class="input-group mb-3">
-                                    <select id="select" name="pelayanan" class="form-select" required>
-                                        <option value="" selected>Silahkan Pilih Kebutuhan </option>
-                                        <option value="Pembuatan Ktp">Pembuatan Ktp</option>
-                                        <option value="Pembuatan KK">Pembuatan KK</option>
-                                        <option value="Pembuatan KK">Pembuatan KK</option>
-                                        <option value="Pembuatan Surat Kelahiran">Pembuatan Surat Kelahiran</option>
-                                        <option value="Pembuatan Surat Kematian">Pembuatan Surat Kematian</option>
-                                        <option value="Pembuatan Surat Pindah">Pembuatan Surat Pindah</option>
-                                        <option value="Pembuatan Surat Datang">Pembuatan Surat Datang</option>
-                                        <option value="Pembuatan Surat Ahliwari">Pembuatan Surat Ahliwari</option>
-                                        <option value="Pembuatan Surat Izin Usaha">Pembuatan Surat Izin Usaha</option>
-                                        <option value="Pembuatan Surat Tidak Mampu">Pembuatan Surat Tidak Mampu</option>
-                                    </select>
-                                </div>
-                                Deskripsi Tambahan :
-                                <div class="form-floating mb-2">
-                                    <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
-                                    <label for="floatingTextarea">Comments</label>
-                                </div>
-
-                                <!-- <div class="row">
-                                    <div class="col">
-                                        Masukan KTP (PDF) :
-                                        <div class="input-group mb-2 ">
-                                            <input name="" type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        Masukan KK (KK) :
-                                        <div class="input-group mb-2 ">
-                                            <input name="" type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                                <div class="float-end">
-                                    <button class="btn btn-primary" type="submit"> Simpan</button>
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="col">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="width: 20px;">#</th>
-                                        <th scope="col">Pelayanan</th>
-                                        <th scope="col">Deskripsi</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Tanggal Permintaan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php foreach ($permintaan as $permintaan) : ?>
-                                        <tr>
-                                            <th scope="row"><?= $no++; ?></th>
-                                            <td><?= $permintaan['pelayanan']; ?></td>
-                                            <td><?= $permintaan['deskripsi']; ?></td>
-                                            <td><?= $permintaan['status']; ?></td>
-                                            <td><?= $permintaan['created_at']; ?></td>
-                                        </tr>
-
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <!-- //ANCHOR - Tab 2 -->
-
             <div class="card">
                 <div class="card-body">
                     <h4>
@@ -258,8 +169,169 @@
                     </div>
                 </div>
             </div>
+
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <!-- //ANCHOR - Tab 2 -->
+            <div class="card" style="height: 500px;">
+                <div class="card-body">
+                    <h4>
+                        Menu Pelayanan
+                    </h4>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="<?= base_url('User/proses/' . $data_user['id_penduduk']); ?>" method="post" enctype="multipart/form-data">
+                                        Silahkan Pilih Pelayanan :
+                                        <div class="input-group mb-3">
+                                            <select id="select" name="pelayanan" class="form-select" required>
+                                                <option value="" selected>Silahkan Pilih Kebutuhan </option>
+                                                <option value="Pembuatan Ktp">Pembuatan Ktp</option>
+                                                <option value="Pembuatan KK">Pembuatan KK</option>
+                                                <option value="Pembuatan Surat Kelahiran">Pembuatan Surat Kelahiran</option>
+                                                <option value="Pembuatan Surat Kematian">Pembuatan Surat Kematian</option>
+                                                <option value="Pembuatan Surat Pindah">Pembuatan Surat Pindah</option>
+                                                <option value="Pembuatan Surat Datang">Pembuatan Surat Datang</option>
+                                                <option value="Pembuatan Surat Ahliwari">Pembuatan Surat Ahliwari</option>
+                                                <option value="Pembuatan Surat Izin Usaha">Pembuatan Surat Izin Usaha</option>
+                                                <option value="Pembuatan Surat Tidak Mampu">Pembuatan Surat Tidak Mampu</option>
+                                            </select>
+                                        </div>
+                                        Deskripsi Tambahan :
+                                        <div class="form-floating mb-2">
+                                            <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
+                                            <label for="floatingTextarea">Comments</label>
+                                        </div>
+
+                                        <!-- <div class="row">
+                                          <div class="col">
+                                              Masukan KTP (PDF) :
+                                              <div class="input-group mb-2 ">
+                                                  <input name="" type="file" class="form-control">
+                                              </div>
+                                          </div>
+                                          <div class="col">
+                                              Masukan KK (KK) :
+                                              <div class="input-group mb-2 ">
+                                                  <input name="" type="file" class="form-control">
+                                              </div>
+                                          </div>
+                                      </div> -->
+
+                                        <div class="float-end">
+                                            <button class="btn btn-primary" type="submit"> Simpan</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="width: 20px;">No</th>
+                                                <th scope="col">Pelayanan</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Tanggal Permintaan</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($permintaan as $permintaan) : ?>
+                                                <tr>
+                                                    <th scope="row"><?= $no++; ?></th>
+                                                    <td><?= $permintaan['pelayanan']; ?></td>
+                                                    <td><?= $permintaan['deskripsi']; ?></td>
+                                                    <td><?= $permintaan['status']; ?></td>
+                                                    <td><?= $permintaan['created_at']; ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('Detail_permintaan/index/' . $permintaan['id_permintaan']); ?>" class="btn btn-outline-info btn-sm">Detail</a>
+                                                        <a href="<?= base_url('User/hapus_perminataan/' . $permintaan['id_permintaan']); ?>" class="btn btn-outline-danger btn-sm">Hapus</a>
+                                                    </td>
+                                                </tr>
+
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Feedback</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <form action="<?= base_url('User/feedback/' . $data_user['id_penduduk']); ?>" method="post">
+                                <!-- input data -->
+                                Kategori Feedback :
+                                <div class="input-group mb-2 ">
+                                    <input name="kategori" type="text" class="form-control">
+                                </div>
+                                Isi Feedback
+                                <div class="form-floating">
+                                    <textarea name="isi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Isi Feedback..</label>
+                                </div>
+                                <div class="float-end mt-3">
+                                    <button type="submit" class="btn btn-primary">Tambah Feedback</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="width: 20px;">No</th>
+                                                <th scope="col">Feedback</th>
+                                                <th scope="col">Isi</th>
+                                                <th scope="col">Tanggal Feedback</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($feedback as $feedback) : ?>
+                                                <tr>
+                                                    <th scope="row"><?= $no++; ?></th>
+                                                    <td><?= $feedback['kategori']; ?></td>
+                                                    <td><?= $feedback['isi']; ?></td>
+                                                    <td><?= $feedback['created_at']; ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('User/hapus_feed/' . $feedback['id_feedback']); ?>" class="btn btn-outline-danger  btn-sm">Hapus</a>
+                                                    </td>
+                                                </tr>
+
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

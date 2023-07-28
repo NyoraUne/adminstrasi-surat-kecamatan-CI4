@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Mod_penduduk;
+use App\Models\Mod_feedback;
 use App\Models\Mod_user;
 use App\Models\Mod_permintaan;
 
@@ -10,6 +11,7 @@ class User extends BaseController
 {
     protected $session;
     protected $Mod_penduduk;
+    protected $Mod_feedback;
     protected $Mod_user;
     protected $Mod_permintaan;
     public function __construct()
@@ -17,6 +19,7 @@ class User extends BaseController
         $this->session = session();
         $this->Mod_penduduk = new Mod_penduduk();
         $this->Mod_permintaan = new Mod_permintaan();
+        $this->Mod_feedback = new Mod_feedback();
         $this->Mod_user = new Mod_user();
     }
 
@@ -40,9 +43,12 @@ class User extends BaseController
             $permintaan = $this->Mod_permintaan
                 ->where('id_penduduk', $me2['id_penduduk'])
                 ->findAll();
+
+            $feedback = $this->Mod_feedback->where('id_penduduk', $me2['id_penduduk'])->findAll();
             $data = [
                 'data_user' => $me2,
                 'permintaan' => $permintaan,
+                'feedback' => $feedback,
             ];
             // dd($data);
 
@@ -124,9 +130,32 @@ class User extends BaseController
             'id_penduduk' => $id,
             'pelayanan' => $var['pelayanan'],
             'deskripsi' => $var['deskripsi'],
-            'status' => 'Pengajuan',
+            'status' => 'Diajukan',
         ];
         $this->Mod_permintaan->insert($data);
+        return redirect()->back();
+    }
+    function feedback($id)
+    {
+        $var = $this->request->getPost();
+
+        $data = [
+            'id_penduduk' => $id,
+            'kategori' => $var['kategori'],
+            'isi' => $var['isi'],
+        ];
+
+        $this->Mod_feedback->insert($data);
+        return redirect()->back();
+    }
+    function hapus_feed($id)
+    {
+        $this->Mod_feedback->delete($id);
+        return redirect()->back();
+    }
+    function hapus_perminataan($id)
+    {
+        $this->Mod_permintaan->delete($id);
         return redirect()->back();
     }
 }

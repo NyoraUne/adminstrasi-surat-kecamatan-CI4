@@ -55,6 +55,10 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
                             Penajuan Masuk
                         </a>
+                        <a class="nav-link" href="<?= base_url('Pengajuan') ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                            Feedback Masyarakat
+                        </a>
                         <!-- Menu Start -->
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa-regular fa-file"></i></div>
