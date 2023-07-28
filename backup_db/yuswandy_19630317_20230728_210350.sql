@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: yuswandy_19630317
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.23.04.2
+-- Server version	8.0.33-0ubuntu0.23.04.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -78,6 +78,64 @@ INSERT INTO `de_kk` VALUES (47,6,20,'','2023-07-17'),(48,6,21,'','2023-07-17'),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `feedback` (
+  `id_feedback` int NOT NULL AUTO_INCREMENT,
+  `id_penduduk` int NOT NULL,
+  `kategori` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `isi` text COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` date NOT NULL,
+  PRIMARY KEY (`id_feedback`),
+  KEY `id_penduduk` (`id_penduduk`),
+  CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feedback`
+--
+
+LOCK TABLES `feedback` WRITE;
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file`
+--
+
+DROP TABLE IF EXISTS `file`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `file` (
+  `id_file` int NOT NULL AUTO_INCREMENT,
+  `id_permintaan` int NOT NULL,
+  `data` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `file` text COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id_file`),
+  KEY `id_permintaan` (`id_permintaan`),
+  CONSTRAINT `file_ibfk_1` FOREIGN KEY (`id_permintaan`) REFERENCES `permintaan` (`id_permintaan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file`
+--
+
+LOCK TABLES `file` WRITE;
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
+INSERT INTO `file` VALUES (2,3,'Data KTP','20230728-02:45:33pm-Mid Kusuma.pdf','ktp','2023-07-28 14:45:33'),(3,3,'Data KK','20230728-07:59:28pm-Mid Kusuma.pdf','ini data KK','2023-07-28 19:59:28');
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `kk`
 --
 
@@ -143,7 +201,7 @@ CREATE TABLE `penduduk` (
 
 LOCK TABLES `penduduk` WRITE;
 /*!40000 ALTER TABLE `penduduk` DISABLE KEYS */;
-INSERT INTO `penduduk` VALUES (20,'3326160608070197','Malik ikthar','Banjarabaru','1997-07-17','Laki-Laki','Islam','Programer','JL Batu Aren','Lajang','mail@gmail.com','+62 872-5254-875','3326160608070197_malik-ikthar.jpg','3326160608070197_malik-ikthar','2023-07-17'),(21,'3326160902090003','Bima Akhrya','Banjarabaru','1974-07-18','Laki-Laki','Islam','Tukang  bikin rujak','JL ngkasa menuju ke bumi','Lajang','mail@gmail.com','+62 881-709-712','3326160902090003_bima-akhrya.jpg','3326160902090003_bima-akhrya','2023-07-17'),(23,'3326160911060005','Abdullah ilham','Banjarabaru','1992-07-03','Laki-Laki','Islam','Penjaga Kafe','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160911060005_abdullah-ilham.jpg','3326160911060005_abdullah-ilham','2023-07-17'),(25,'3326160608070060','Linda Aria Masra','Banjarabaru','1992-02-03','Perempuan','Islam','Programer','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160608070060_linda-aria-masra.jpg','3326160608070060_linda-aria-masra','2023-07-17'),(26,'','','','0000-00-00','Pilih Jenis Kelamin','Pilih Agama','','','Pilih Status Pernikahan','','','','_','2023-07-26'),(29,'332682042407928','Riska Muni','Banjarabaru','1976-06-22','Laki-Laki','Konghucu','Programer','JL Batu Aren','Sudah Menikah','jahidesek@mailinator.com','+6284534889422','','332682042407928_riska-muni','2023-07-26'),(31,'332683112893069','Aulia Kurniawan','Banjarabaru','2011-02-09','Laki-Laki','Islam','Tukang Gali Internet','JL Batu Aren','Lajang','mail@gmail.com','+6285045775974','','332683112893069_aulia-kurniawan','2023-07-26'),(32,'332679041449924','Mid Kusuma','Banjarabaru','2023-07-26','Perempuan','Katolik','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288347303146','','332679041449924_mid-kusuma','2023-07-26'),(33,'332674071215793','Mid Kurniawan','Banjarabaru','2023-07-01','Laki-Laki','Protestan','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288437923768','','332674071215793_mid-kurniawan','2023-07-26');
+INSERT INTO `penduduk` VALUES (20,'3326160608070197','Malik ikthar','Banjarabaru','1997-07-17','Laki-Laki','Islam','Programer','JL Batu Aren','Lajang','mail@gmail.com','+62 872-5254-875','3326160608070197_malik-ikthar.jpg','3326160608070197_malik-ikthar','2023-07-17'),(21,'3326160902090003','Bima Akhrya','Banjarabaru','1974-07-18','Laki-Laki','Islam','Tukang  bikin rujak','JL ngkasa menuju ke bumi','Lajang','mail@gmail.com','+62 881-709-712','3326160902090003_bima-akhrya.jpg','3326160902090003_bima-akhrya','2023-07-17'),(23,'3326160911060005','Abdullah ilham','Banjarabaru','1992-07-03','Laki-Laki','Islam','Penjaga Kafe','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160911060005_abdullah-ilham.jpg','3326160911060005_abdullah-ilham','2023-07-17'),(25,'3326160608070060','Linda Aria Masra','Banjarabaru','1992-02-03','Perempuan','Islam','Programer','JL Batu Aren','Sudah Menikah','mail@gmail.com','+62 893-4050-1506','3326160608070060_linda-aria-masra.jpg','3326160608070060_linda-aria-masra','2023-07-17'),(29,'332682042407928','Riska Muni','Banjarabaru','1976-06-22','Laki-Laki','Konghucu','Programer','JL Batu Aren','Sudah Menikah','jahidesek@mailinator.com','+6284534889422','','332682042407928_riska-muni','2023-07-26'),(31,'332683112893069','Aulia Kurniawan','Banjarabaru','2011-02-09','Laki-Laki','Islam','Tukang Gali Internet','JL Batu Aren','Lajang','mail@gmail.com','+6285045775974','','332683112893069_aulia-kurniawan','2023-07-26'),(32,'332679041449924','Mid Kusuma','Banjarabaru','2023-07-26','Perempuan','Katolik','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288347303146','','332679041449924_mid-kusuma','2023-07-26'),(33,'332674071215793','Mid Kurniawan','Banjarabaru','2023-07-01','Laki-Laki','Protestan','Penjaga Kafe','JL Batu Aren','Lajang','mail@gmail.com','+6288437923768','','332674071215793_mid-kurniawan','2023-07-26');
 /*!40000 ALTER TABLE `penduduk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +222,7 @@ CREATE TABLE `permintaan` (
   PRIMARY KEY (`id_permintaan`),
   KEY `id_penduduk` (`id_penduduk`),
   CONSTRAINT `permintaan_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +231,7 @@ CREATE TABLE `permintaan` (
 
 LOCK TABLES `permintaan` WRITE;
 /*!40000 ALTER TABLE `permintaan` DISABLE KEYS */;
-INSERT INTO `permintaan` VALUES (1,32,'Pembuatan Surat Izin Usaha','Pembangunan usaha jual beli ayam','Data selesai di buat dan dapat di ambil di kantor','2023-07-26 12:10:21');
+INSERT INTO `permintaan` VALUES (3,32,'Pembuatan Surat Tidak Mampu','zxcxzczxczx','Diajukan','2023-07-28 06:00:23');
 /*!40000 ALTER TABLE `permintaan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,7 +474,7 @@ CREATE TABLE `skpindah` (
   PRIMARY KEY (`id_skpindah`),
   KEY `id_penduduk` (`id_penduduk`),
   CONSTRAINT `skpindah_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -425,7 +483,7 @@ CREATE TABLE `skpindah` (
 
 LOCK TABLES `skpindah` WRITE;
 /*!40000 ALTER TABLE `skpindah` DISABLE KEYS */;
-INSERT INTO `skpindah` VALUES (4,'PIN/01/Banjarbaru/2023',25,'Jl Bumi Ke Langit','Pekerjaan','Jl Langit Ke Bumi',0,'2023-07-17 09:19:44');
+INSERT INTO `skpindah` VALUES (4,'PIN/01/Banjarbaru/2023',25,'Jl Bumi Ke Langit','Pekerjaan','Jl Langit Ke Bumi',0,'2023-07-17 09:19:44'),(5,'PIN/02/Banjarbaru/2023',20,'Magelang','Pekerjaan','Banjarbaru',1,'2023-07-27 00:38:37');
 /*!40000 ALTER TABLE `skpindah` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -529,4 +587,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-26 21:03:16
+-- Dump completed on 2023-07-28 21:03:50

@@ -52,11 +52,12 @@
                             Dashboard
                         </a>
                         <a class="nav-link" href="<?= base_url('Pengajuan') ?>">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
-                            Penajuan Masuk
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            Pengajuan Masuk
                         </a>
+
                         <a class="nav-link" href="<?= base_url('Pengajuan') ?>">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                            <div class="sb-nav-link-icon"></div>
                             Feedback Masyarakat
                         </a>
                         <!-- Menu Start -->
