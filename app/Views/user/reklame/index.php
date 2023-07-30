@@ -94,7 +94,7 @@
                 <hr>
                 <table id="tb1">
                     <thead>
-                        <tr>print_surat
+                        <tr>
                             <th>No</th>
                             <th>No Surat</th>
                             <th>Nama Pemilik</th>

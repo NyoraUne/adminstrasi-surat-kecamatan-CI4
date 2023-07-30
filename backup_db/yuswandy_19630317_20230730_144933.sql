@@ -124,7 +124,7 @@ CREATE TABLE `file` (
   PRIMARY KEY (`id_file`),
   KEY `id_permintaan` (`id_permintaan`),
   CONSTRAINT `file_ibfk_1` FOREIGN KEY (`id_permintaan`) REFERENCES `permintaan` (`id_permintaan`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `file` (
 
 LOCK TABLES `file` WRITE;
 /*!40000 ALTER TABLE `file` DISABLE KEYS */;
-INSERT INTO `file` VALUES (2,3,'Data KTP','20230728-02:45:33pm-Mid Kusuma.pdf','ktp',0,'2023-07-28 14:45:33'),(3,3,'Data KK','20230728-07:59:28pm-Mid Kusuma.pdf','ini data KK',0,'2023-07-28 19:59:28');
+INSERT INTO `file` VALUES (2,3,'Data KTP','20230728-02:45:33pm-Mid Kusuma.pdf','ktp',0,'2023-07-28 14:45:33'),(3,3,'Data KK','20230728-07:59:28pm-Mid Kusuma.pdf','ini data KK',0,'2023-07-28 19:59:28'),(4,3,'Data KTP','20230730-11:09:33am-Mid Kusuma.pdf','-',1,'2023-07-30 11:09:33');
 /*!40000 ALTER TABLE `file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,7 +187,7 @@ CREATE TABLE `komentar` (
   KEY `id_user` (`id_user`),
   CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_permintaan`) REFERENCES `permintaan` (`id_permintaan`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `komentar_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +196,7 @@ CREATE TABLE `komentar` (
 
 LOCK TABLES `komentar` WRITE;
 /*!40000 ALTER TABLE `komentar` DISABLE KEYS */;
-INSERT INTO `komentar` VALUES (2,3,11,'Apakah Sudah Selesai Ibu/Bapak?','2023-07-28 13:41:43'),(3,3,11,'pak?','2023-07-28 13:53:25');
+INSERT INTO `komentar` VALUES (2,3,11,'Apakah Sudah Selesai Ibu/Bapak?','2023-07-28 13:41:43'),(3,3,11,'pak?','2023-07-28 13:53:25'),(4,3,8,'lagi di kerjakan pak ya','2023-07-29 05:20:52');
 /*!40000 ALTER TABLE `komentar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,6 +266,43 @@ LOCK TABLES `permintaan` WRITE;
 /*!40000 ALTER TABLE `permintaan` DISABLE KEYS */;
 INSERT INTO `permintaan` VALUES (3,32,'Pembuatan Surat Tidak Mampu','zxcxzczxczx','Di Proses','2023-07-28 06:00:23');
 /*!40000 ALTER TABLE `permintaan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reklame`
+--
+
+DROP TABLE IF EXISTS `reklame`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reklame` (
+  `id_reklame` int NOT NULL AUTO_INCREMENT,
+  `id_penduduk` int NOT NULL,
+  `no_surat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_perusahaan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_perusahaan` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_telp` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `naskah` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `ukuran` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `lokasi` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `masa_berlaku` int NOT NULL,
+  `lahan_milik` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id_reklame`),
+  KEY `id_penduduk` (`id_penduduk`),
+  CONSTRAINT `reklame_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reklame`
+--
+
+LOCK TABLES `reklame` WRITE;
+/*!40000 ALTER TABLE `reklame` DISABLE KEYS */;
+INSERT INTO `reklame` VALUES (1,33,'Et velit alias ab c','Suscipit odio tempor','Labore commodo volup','Ex est nesciunt vel','Quibusdam voluptatum','Dolores alias autem ','Veniam cillum ut ra','In quibusdam aute ni',90,'Nostrud qui accusamu','2023-07-30 05:55:17');
+/*!40000 ALTER TABLE `reklame` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -620,4 +657,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-28 23:08:12
+-- Dump completed on 2023-07-30 14:49:33

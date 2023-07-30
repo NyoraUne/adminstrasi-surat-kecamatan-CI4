@@ -15,6 +15,7 @@ use App\Models\Mod_izinusaha;
 use App\Models\Mod_tidak_mampu;
 use App\Models\Mod_feedback;
 use App\Models\Mod_permintaan;
+use App\Models\Mod_reklame;
 
 
 
@@ -24,6 +25,7 @@ class Laporan extends BaseController
     protected $session;
     protected $Mod_penduduk;
     protected $Mod_skktp;
+    protected $Mod_reklame;
     protected $Mod_permintaan;
     protected $Mod_kk;
     protected $Mod_skk;
@@ -43,6 +45,7 @@ class Laporan extends BaseController
         $this->Mod_penduduk = new Mod_penduduk();
         $this->Mod_skktp = new Mod_skktp();
         $this->Mod_permintaan = new Mod_permintaan();
+        $this->Mod_reklame = new Mod_reklame();
         $this->Mod_kk = new Mod_kk();
         $this->Mod_skk = new Mod_skk();
         $this->Mod_kelahiran = new Mod_kelahiran();
@@ -148,7 +151,7 @@ class Laporan extends BaseController
             case 12:
                 return $this->skpermintaan($input);
             case 13:
-                return $this->skpermintaan($input);
+                return $this->skreklame($input);
             case 14:
                 return $this->skfeedback($input);
             default:
@@ -586,7 +589,7 @@ class Laporan extends BaseController
             $variable = $this->Mod_ahliwaris
                 ->select('*')
                 ->join('skkematian', 'skkematian.id_skkematian = skahliwaris.id_skkematian')
-                ->join('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
+                ->jon('penduduk', 'penduduk.id_penduduk = skkematian.id_penduduk')
                 ->where('skahliwaris.created_at <=', $tgl2)
                 ->orderBy('skahliwaris.created_at', 'desc')
                 ->findAll();
@@ -818,5 +821,52 @@ class Laporan extends BaseController
             'msg' => $msg,
         ];
         echo view('user/laporan/datafeedback', $data);
+    }
+    function skreklame($input) //LINK - Function Data feedback
+    {
+        $tgl1 = $input['tgl1'];
+        $tgl2 = $input['tgl2'];
+        // dd($tgl2, $tgl1);
+
+        if (empty($tgl1) && empty($tgl2)) {
+            $variable = $this->Mod_reklame
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = reklame.id_penduduk')
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data';
+        } else if (empty($tgl1)) {
+            $variable = $this->Mod_reklame
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = reklame.id_penduduk')
+                ->where('created_at <=', $tgl2)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Bawah Tanggal : ' . $tgl2;
+        } else if (empty($tgl2)) {
+            $variable = $this->Mod_reklame
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = reklame.id_penduduk')
+                ->where('created_at >=', $tgl1)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Atas Tanggal : ' . $tgl1;
+        } else {
+            // Jika input tanggal tidak kosong, terapkan filter
+            $variable = $this->Mod_reklame
+                ->select('*')
+                ->join('penduduk', 'penduduk.id_penduduk = reklame.id_penduduk')
+                ->where('created_at >=', $tgl1)
+                ->where('created_at <=', $tgl2)
+                ->orderBy('created_at', 'desc')
+                ->findAll();
+            $msg = 'Menampilkan Semua Data Di Antara Tanggal ' . $tgl1 . ' Sampai ' . $tgl2 . '.';
+        }
+
+        $data = [
+            'variable' => $variable,
+            'msg' => $msg,
+        ];
+        echo view('user/laporan/datareklame', $data);
     }
 }
