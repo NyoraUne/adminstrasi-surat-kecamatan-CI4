@@ -131,6 +131,71 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <form action="<?= base_url('Pengajuan/simpan/' . $permintaan['id_permintaan']); ?>" method="post" enctype="multipart/form-data">
+
+
+                                        Jenis Data :
+                                        <div class="input-group mb-2 input-group-sm">
+                                            <select id="select" name="data" class="form-select" required>
+                                                <option value=""></option>
+                                                <option value="Data Prmintaan">Data Prmintaan</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>
+                                        </div>
+                                        <!-- input data -->
+                                        File Kebutuhan (PDF) :
+                                        <div class="input-group mb-2 input-group-sm">
+                                            <input name="file" type="file" class="form-control" required>
+                                        </div>
+
+                                        Deskripsi :
+                                        <div class="form-floating">
+                                            <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
+                                            <label for="floatingTextarea">Isi deskripsi</label>
+                                        </div>
+                                        <div class="float-end mt-2">
+                                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="table-dark">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Keterangan</th>
+                                                <th scope="col">File</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Data Di Tambah</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($files as $fike) : ?>
+                                                <tr>
+                                                    <th scope="row"><?= $no++; ?></th>
+                                                    <td><?= $fike['data']; ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('Detail_permintaan/seepdf/' . $fike['file']); ?>" target="_blank">
+                                                            <?= $fike['file']; ?>
+                                                    </td>
+                                                    </a>
+                                                    <td><?= $fike['deskripsi']; ?></td>
+                                                    <td><?= $fike['created_at']; ?></td>
+                                                    <td><a href="<?= base_url('Detail_permintaan/hapus_file/' . $fike['id_file']); ?>" class="btn btn-outline-danger btn-sm">Hapus Data</a></td>
+                                                </tr>
+
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>

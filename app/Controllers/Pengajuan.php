@@ -48,6 +48,12 @@ class Pengajuan extends BaseController
 
         $file = $this->Mod_file
             ->where('id_permintaan', $id)
+            ->where('detail', false)
+            ->findAll();
+
+        $files = $this->Mod_file
+            ->where('id_permintaan', $id)
+            ->where('detail', true)
             ->findAll();
 
         $permintaan = $this->Mod_permintaan
@@ -62,6 +68,7 @@ class Pengajuan extends BaseController
         $data = [
             'permintaan' => $permintaan,
             'file' => $file,
+            'files' => $files,
             'komen' => $komen,
         ];
         return view('user/pengajuan/detail', $data);
@@ -118,6 +125,41 @@ class Pengajuan extends BaseController
 
         // dd($id, $inv, $data);
         $this->Mod_komen->insert($data);
+        return redirect()->back();
+    }
+    function simpan($id)
+    {
+        date_default_timezone_set("Asia/Jakarta");
+        $file = $this->Mod_file
+            ->join('permintaan', 'permintaan.id_permintaan = file.id_permintaan')
+            ->where('file.id_permintaan', $id)
+            ->findAll();
+
+
+        $permintaan = $this->Mod_permintaan
+            ->join('penduduk', 'penduduk.id_penduduk = permintaan.id_penduduk')
+            ->where('permintaan.id_permintaan', $id)
+            ->first();
+
+
+        $input = $this->request->getPost();
+        $date = date("Ymd-h:i:sa");
+
+        // upload gambar
+        // dd($permintaan);
+        $image = $this->request->getFile('file');
+        $FileName = $date . '-' . $permintaan['nama_penduduk'] . '.' . $image->getExtension();
+        $image->move(ROOTPATH . 'public/src/file', $FileName);
+
+        $data = [
+            'id_permintaan' => $id,
+            'file' => $FileName,
+            'data' => $input['data'],
+            'detail' => true,
+            'deskripsi' => $input['deskripsi'],
+        ];
+
+        $this->Mod_file->insert($data);
         return redirect()->back();
     }
 }

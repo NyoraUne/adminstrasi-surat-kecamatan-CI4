@@ -56,8 +56,8 @@
                             Pengajuan Masuk
                         </a>
 
-                        <a class="nav-link" href="<?= base_url('Pengajuan') ?>">
-                            <div class="sb-nav-link-icon"></div>
+                        <a class="nav-link" href="<?= base_url('Feedback') ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope"></i></div>
                             Feedback Masyarakat
                         </a>
                         <!-- Menu Start -->

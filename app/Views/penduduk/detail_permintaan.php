@@ -196,7 +196,42 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="table-dark">
+                                                <th scope="col">No</th>
+                                                <th scope="col">Keterangan</th>
+                                                <th scope="col">File</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Data Di Tambah</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($files as $fike) : ?>
+                                                <tr>
+                                                    <th scope="row"><?= $no++; ?></th>
+                                                    <td><?= $fike['data']; ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url('Detail_permintaan/seepdf/' . $fike['file']); ?>" target="_blank">
+                                                            <?= $fike['file']; ?>
+                                                    </td>
+                                                    </a>
+                                                    <td><?= $fike['deskripsi']; ?></td>
+                                                    <td><?= $fike['created_at']; ?></td>
+                                                    <td><a href="<?= base_url('Detail_permintaan/hapus_file/' . $fike['id_file']); ?>" class="btn btn-outline-danger btn-sm">Hapus Data</a></td>
+                                                </tr>
+
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- /* ----------------------------------- Tab ---------------------------------- */ -->
 

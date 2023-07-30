@@ -100,6 +100,8 @@
                                     <option value="10">Laporan Izin Usaha</option>
                                     <option value="11">Laporan Data Tidak Mampu</option>
                                     <option value="12">Laporan Pengajuan Masyarakat</option>
+                                    <option value="13">Laporan Permintaan Pemasangan Reklame</option>
+                                    <option value="14">Laporan Feedback</option>
                                 </select>
                             </div>
                             <!-- Input Data End -->

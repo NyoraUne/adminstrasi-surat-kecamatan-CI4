@@ -55,6 +55,10 @@ class Detail_permintaan extends BaseController
                 ->where('id_permintaan', $id)
                 ->where('detail', false)
                 ->findAll();
+            $files = $this->Mod_file
+                ->where('id_permintaan', $id)
+                ->where('detail', true)
+                ->findAll();
 
             $komen = $this->Mod_komen
                 ->join('user', 'user.id_user = komentar.id_user')
@@ -70,6 +74,7 @@ class Detail_permintaan extends BaseController
                 'permintaan' => $permintaan,
                 'feedback' => $feedback,
                 'file' => $file,
+                'files' => $files,
                 'komen' => $komen,
             ];
             // dd($data);
