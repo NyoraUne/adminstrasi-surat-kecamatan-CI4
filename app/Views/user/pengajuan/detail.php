@@ -42,7 +42,7 @@
                                 Pilih Status :
                                 <div class="input-group mb-3">
                                     <select id="select" name="status" class="form-select" required>
-                                        <option value="">Status Pnegajuan</option>
+                                        <option value="">Status Pengajuan</option>
                                         <option value="Di Proses">Di Proses</option>
                                         <option value="Terkendala">Terkendala</option>
                                         <option value="ditolak">ditolak</option>
@@ -140,7 +140,7 @@
                                         <div class="input-group mb-2 input-group-sm">
                                             <select id="select" name="data" class="form-select" required>
                                                 <option value=""></option>
-                                                <option value="Data Prmintaan">Data Prmintaan</option>
+                                                <option value="Data Prmintaan">Data Permintaan</option>
                                                 <option value="Lainnya">Lainnya</option>
                                             </select>
                                         </div>

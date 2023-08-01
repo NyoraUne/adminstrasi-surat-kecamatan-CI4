@@ -1,167 +1,51 @@
-<!DOCTYPE html>
-<html>
+<?= $this->include('nav/head_c'); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Halaman Cetak</title>
-    <link href="<?= base_url('src/') ?>css/styles.css" rel="stylesheet" />
-
-    <style>
-        @page {
-            size: auto;
-            margin: 20px;
-        }
-
-        body {
-            /* margin: 0; */
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        @media print {
-            body {
-                margin: 20px 40px;
-                /* Atur nilai margin kanan dan kiri sesuai kebutuhan */
-            }
-
-            table,
-            th,
-            td {
-                box-shadow: 1px 1px 1px 1px black;
-                /* Atur ketebalan, warna, dan jenis garis batas sesuai kebutuhan */
-            }
-        }
-
-        @media print {
-            @page {
-                margin-bottom: 0;
-            }
-        }
-
-        img {
-            width: 80px;
-        }
-
-        hr.pemisah {
-            height: 5px;
-            color: black;
-            /* Atur tinggi garis sesuai kebutuhan */
-            background-color: black;
-            /* Atur warna lapisan atas */
-            position: relative;
-        }
-
-        .bold {
-            font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        .uline {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- Head -->
-    <div class="row">
-        <div class="col-3">
-            <div class="float-end">
-                <img src="<?= base_url('src/') ?>img/logo.blob" alt="">
-
-            </div>
-        </div>
-        <div class="col text-center">
-            <h4 class="bold">
-                PEMERINTAH KABUPATEN BALANGAN <br>
-                KECAMATAN PARINGIN
-            </h4>
-            Jalan A. Yani Km. 4,4 Paringin Fax : 0526 - 2028485 email : diskominfo@gmail.com
-        </div>
-        <div class="col-2"></div>
-    </div>
-    <hr class="pemisah">
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- head sub -->
-    <h3 class="text-center bold uline ">
-        Surat Keterangan Tidak Mampu
-    </h3>
-    <div class="text-center">Nomor : <?= $tidak_mampu['no_surat']; ?></div>
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- kalimat pertama -->
-    <!-- <br> -->
-    <!-- <p style="text-indent: 50px;">
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<!-- head sub -->
+<h3 class="text-center bold uline ">
+    Surat Keterangan Tidak Mampu
+</h3>
+<div class="text-center">Nomor : <?= $tidak_mampu['no_surat']; ?></div>
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<!-- kalimat pertama -->
+<!-- <br> -->
+<!-- <p style="text-indent: 50px;">
     </p> -->
-    Menerangkan dengan ini bahwa :
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- bio data -->
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            Nama Lengkap <br>
-            Nik <br>
-            Jenis Kelamin <br>
-            Tempat Tanggal Lahir <br>
-            Agama<br>
-            Pekerjaan<br>
-            Alamat<br>
-        </div>
-        <div class="col">
-            : <?= $tidak_mampu['nama_penduduk']; ?><br>
-            : <?= $tidak_mampu['nik_penduduk']; ?><br>
-            : <?= $tidak_mampu['jenis_kelamin_penduduk']; ?><br>
-            : <?= $tidak_mampu['tempat_lahir_penduduk']; ?>, <?= $tidak_mampu['tgl_lahir_penduduk']; ?><br>
-            : <?= $tidak_mampu['agama_penduduk']; ?><br>
-            : <?= $tidak_mampu['pekerjaan_penduduk']; ?><br>
-            : <?= $tidak_mampu['alamat_penduduk']; ?><br>
-        </div>
+Menerangkan dengan ini bahwa :
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<!-- bio data -->
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+        Nama Lengkap <br>
+        Nik <br>
+        Jenis Kelamin <br>
+        Tempat Tanggal Lahir <br>
+        Agama<br>
+        Pekerjaan<br>
+        Alamat<br>
     </div>
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <p style="text-indent: 50px;text-align: justify;">
-        Nama tersebut adalah benar warga desa kecamatan paringin. Berdasarkan keterangan yang ada pada keluarga bersangkutan tergolong keluarga yang tidak mampu. <br>
-        Surat Keterangan ini di buat untuk <b><?= $tidak_mampu['keperluan']; ?></b>.
-    </p>
-
-
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <p style="text-indent: 50px;">
-        Demikian surat pengantar ini di buat dengan sebenarnya untuk dapat di pergunakan sebagaimana mestinya. atas kerjasamanya di ucapkan terimakasih.
-    </p>
-    <!-- // -------------------------------------------------------------------------------------------------------------- -->
-    <!-- ini tanda tangan !?.. -->
-    <?php
-    $tgl = date('d');
-    $bln = date('F');
-    $thn = date('Y');
-    ?>
-    <br>
-    <div class="row">
-        <div class="col-4">
-
-        </div>
-        <div class="col text-center">
-            <?php echo "Pemerintah kabupaten Balangan, $tgl - $bln - $thn" ?>
-            <br>
-            Kepala Pemerintah Kecamatan Paringin <br>
-            <img id="barcode" style="height: 100px; width: 100px;" /> <br>
-            H. Abdul Hadi S.Ag., M.I.Kom.
-        </div>
+    <div class="col">
+        : <?= $tidak_mampu['nama_penduduk']; ?><br>
+        : <?= $tidak_mampu['nik_penduduk']; ?><br>
+        : <?= $tidak_mampu['jenis_kelamin_penduduk']; ?><br>
+        : <?= $tidak_mampu['tempat_lahir_penduduk']; ?>, <?= $tidak_mampu['tgl_lahir_penduduk']; ?><br>
+        : <?= $tidak_mampu['agama_penduduk']; ?><br>
+        : <?= $tidak_mampu['pekerjaan_penduduk']; ?><br>
+        : <?= $tidak_mampu['alamat_penduduk']; ?><br>
     </div>
-    <script>
-        var currentLink = window.location.href;
-        // Ambil data dari halaman web Anda, misalnya dengan menggunakan JavaScript
-        var barcodeData = "A_Barcode";
-        // Atur atribut src dari elemen gambar untuk menampilkan barcode
-        document.getElementById("barcode").src = "https://barcodeapi.org/api/qr/" + currentLink;
-    </script>
-</body>
+</div>
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<p style="text-indent: 50px;text-align: justify;">
+    Nama tersebut adalah benar warga desa kecamatan paringin. Berdasarkan keterangan yang ada pada keluarga bersangkutan tergolong keluarga yang tidak mampu. <br>
+    Surat Keterangan ini di buat untuk <b><?= $tidak_mampu['keperluan']; ?></b>.
+</p>
 
-</html>
+
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<p style="text-indent: 50px;">
+    Demikian surat pengantar ini di buat dengan sebenarnya untuk dapat di pergunakan sebagaimana mestinya. atas kerjasamanya di ucapkan terimakasih.
+</p>
+<!-- // -------------------------------------------------------------------------------------------------------------- -->
+<!-- ini tanda tangan !?.. -->
+<?= $this->include('nav/foot_c'); ?>
