@@ -33,7 +33,7 @@ def backup_database(host, user, password, database):
 if __name__ == "__main__":
     host = "localhost"     # Ganti sesuai host database MySQL Anda
     user = "root"      # Ganti dengan username MySQL Anda
-    password = "anderi77"  # Ganti dengan password MySQL Anda
+    password = ""  # Ganti dengan password MySQL Anda
     database = "yuswandy_19630317"  # Ganti dengan nama database yang ingin di-backup
 
     backup_database(host, user, password, database)
