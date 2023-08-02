@@ -13,6 +13,7 @@ class Detail_permintaan extends BaseController
 {
     protected $session;
     protected $Mod_penduduk;
+    protected $validation;
     protected $Mod_feedback;
     protected $Mod_komen;
     protected $Mod_file;
@@ -23,6 +24,7 @@ class Detail_permintaan extends BaseController
         $this->session = session();
         $this->Mod_penduduk = new Mod_penduduk();
         $this->Mod_permintaan = new Mod_permintaan();
+        $this->validation = \Config\Services::validation();
         $this->Mod_komen = new Mod_komen();
         $this->Mod_file = new Mod_file();
         $this->Mod_feedback = new Mod_feedback();
@@ -100,13 +102,19 @@ class Detail_permintaan extends BaseController
 
 
         $input = $this->request->getPost();
-        $date = date("Ymd-h:i:sa");
+        $date = date("Ymd-hisa");
 
         // upload gambar
         // dd($permintaan);
         $image = $this->request->getFile('file');
-        $FileName = $date . '-' . $permintaan['nama_penduduk'] . '.' . $image->getExtension();
-        $image->move(ROOTPATH . 'public/src/file', $FileName);
+
+        // dd($image);
+        // $FileName = $date . '-' . $permintaan['nama_penduduk'] . '.' . $image->getExtension();
+        $FileName = $date . '-' . str_replace(' ', '_', $permintaan['nama_penduduk']) . '.' . $image->getExtension();
+        // dd($FileName);
+        $image->move(ROOTPATH . 'public/src/file/', $FileName);
+
+
 
         $data = [
             'id_permintaan' => $id,
@@ -115,6 +123,7 @@ class Detail_permintaan extends BaseController
             'detail' => false,
             'deskripsi' => $input['deskripsi'],
         ];
+
 
         $this->Mod_file->insert($data);
         return redirect()->back();

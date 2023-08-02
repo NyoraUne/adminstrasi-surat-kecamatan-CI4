@@ -20,10 +20,18 @@
             <img src="<?= base_url('src/'); ?>img/dash.jpeg" class="card-img" style="height: 200px; object-fit: cover; opacity: 20%;">
             <div class="card-img-overlay">
                 <div class="text-top">
-                    <h3>Selamat Datag Pada Menu Pelayanan Penduduk Kantor
-                        Kecamat Paringin Kabupaten Balangan</h3>
-                    <b> Jl.Jend A.yani Telp/Fax. (0526) 2894137 Kode Pos 71611 Email : e-camat.paringin@gmail.com</b><br>
-                    <img src="<?= base_url('src/') ?>img/logo.blob" style="width: 100px;">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="<?= base_url('src/') ?>img/logo.blob" style="width: 100px;">
+
+                        </div>
+                        <div class="col">
+                            <h3>Selamat Datang Pada Menu Pelayanan Penduduk Kantor
+                                Kecamatan Paringin Kabupaten Balangan</h3>
+                            <b> Jl.Jend A.yani Telp/Fax. (0526) 2894137 Kode Pos 71611 Email : e-camat.paringin@gmail.com</b><br>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,7 +81,7 @@
                                 <div class="col-3">
                                     <div class="card mt-2">
                                         <div class="card-body">
-                                            <form action="<?= base_url('Detail_permintaan/simpan/' . $permintaan['id_permintaan']); ?>" method="post" enctype="multipart/form-data">
+                                            <form id="formdata" action="<?= base_url('Detail_permintaan/simpan/' . $permintaan['id_permintaan']); ?>" method="post" enctype="multipart/form-data">
 
 
                                                 Jenis Data :
@@ -87,10 +95,15 @@
                                                         <option value="Lainnya">Lainnya</option>
                                                     </select>
                                                 </div>
+
                                                 <!-- input data -->
                                                 File Kebutuhan (PDF) :
-                                                <div class="input-group mb-2 input-group-sm">
-                                                    <input name="file" type="file" class="form-control" required>
+                                                <div class="input-group input-group-sm">
+                                                    <input name="file" id="fileInput" type="file" class="form-control" required>
+                                                </div>
+                                                <div class="mb-2">
+                                                    (Data Tidak Boleh Lebih Dari 5MB*)
+
                                                 </div>
 
                                                 Deskripsi :
@@ -153,7 +166,7 @@
                                     <div class="card mt-2">
                                         <div class="card-body">
                                             <form action="<?= base_url('Detail_permintaan/add_comment/' . $permintaan['id_permintaan']); ?>" method="post">
-                                                Komentar Tambahan
+                                                Komentar Untuk Keperluan Layanan Dan Pengajuan
                                                 <hr>
                                                 <!-- input data -->
                                                 Nama :
@@ -242,6 +255,38 @@
 
     </div>
 </div>
-
-
 <?= $this->include('penduduk/nav/foot'); ?>
+
+<script>
+    // Mengambil elemen input tipe file
+    const fileInput = document.getElementById('fileInput');
+
+    // Menambahkan event listener untuk memeriksa ukuran file saat dipilih
+    fileInput.addEventListener('change', function() {
+        const file = fileInput.files[0];
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB dalam bytes
+
+        if (file.size > maxSizeInBytes) {
+            alert('Ukuran file melebihi 5MB. Mohon pilih file yang lebih kecil.');
+            // Reset nilai input file jika ukuran melebihi batasan
+            fileInput.value = '';
+        }
+    });
+</script>
+
+<!-- <script>
+    // Mengambil elemen input tipe file
+    const fileInput = document.getElementById('fileInput');
+
+    // Menambahkan event listener untuk memeriksa ukuran file saat dipilih
+    fileInput.addEventListener('change', function() {
+        const file = fileInput.files[0];
+        const maxSizeInBytes = 100 * 1024; // 100KB dalam bytes
+
+        if (file.size > maxSizeInBytes) {
+            alert('Ukuran file melebihi 100KB. Mohon pilih file yang lebih kecil.');
+            // Reset nilai input file jika ukuran melebihi batasan
+            fileInput.value = '';
+        }
+    });
+</script> -->

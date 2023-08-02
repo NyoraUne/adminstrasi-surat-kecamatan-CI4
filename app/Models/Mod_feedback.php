@@ -12,10 +12,12 @@ class Mod_feedback extends Model
         "id_penduduk",
         "kategori",
         "isi",
+        "status",
+        "end",
     ];
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
-    protected $updatedField  = '';
+    protected $updatedField  = 'end';
     protected $deletedField  = '';
 }

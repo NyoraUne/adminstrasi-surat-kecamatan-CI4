@@ -92,8 +92,10 @@ class penduduk extends BaseController
         $ttl = ucfirst($input['ttl']);
         $slugs = $input['nik'] . '_' . $slug;
         // upload gambar
+        $date = date("hisa");
         $image = $this->request->getFile('foto');
-        $FileName = $slugs . '.' . $image->getExtension();
+        $FileName = $date . $slugs . '.' . $image->getExtension();
+        // dd($FileName);
         $image->move(ROOTPATH . 'public/src/profil', $FileName);
 
         $data = [

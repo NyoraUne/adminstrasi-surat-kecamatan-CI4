@@ -70,8 +70,9 @@ class User extends BaseController
         if ($this->request->getFile('foto') == '') {
             $FileName = '';
         } else {
+            $date = date("hisa");
             $image = $this->request->getFile('foto');
-            $FileName = $slugs . '.' . $image->getExtension();
+            $FileName = $date . $slugs . '.' . $image->getExtension();
             $image->move(ROOTPATH . 'public/src/profil', $FileName);
         }
 

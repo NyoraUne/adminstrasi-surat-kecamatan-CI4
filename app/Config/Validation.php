@@ -46,6 +46,11 @@ class Validation extends BaseConfig
         'password' => 'min_length[8]|alpha_numeric_punct',
         'confirm' => 'matches[password]'
     ];
+    public $size = [
+        'username_user' => 'alpha_numeric|is_unique[user.username_user]',
+        'password' => 'min_length[8]|alpha_numeric_punct',
+        'confirm' => 'matches[password]'
+    ];
 
     public $register_errors = [
         'username_user' => [

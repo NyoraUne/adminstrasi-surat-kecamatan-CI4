@@ -46,9 +46,10 @@ class Reklame extends BaseController
     function simpan_data()
     {
         $inv = $this->request->getPost();
+        $year = date("Y");
         $data = [
             'id_penduduk' => $inv['id_penduduk'],
-            'no_surat' => $inv['no_surat'],
+            'no_surat' => 'SR/' . $inv['no_surat'] . '/Balangan/' . $year,
             'nama_perusahaan' => $inv['nama_perusahaan'],
             'alamat_perusahaan' => $inv['alamat_perusahaan'],
             'no_telp' => $inv['no_telp'],
@@ -59,6 +60,7 @@ class Reklame extends BaseController
             'masa_berlaku' => $inv['masa_berlaku'],
             'lahan_milik' => $inv['lahan_milik'],
         ];
+
         $this->Mod_reklame->insert($data);
         return redirect()->back();
     }

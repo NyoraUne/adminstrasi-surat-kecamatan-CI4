@@ -20,10 +20,18 @@
             <img src="<?= base_url('src/'); ?>img/dash.jpeg" class="card-img" style="height: 200px; object-fit: cover; opacity: 20%;">
             <div class="card-img-overlay">
                 <div class="text-top">
-                    <h3>Selamat Datag Pada Menu Pelayanan Penduduk Kantor
-                        Kecamat Paringin Kabupaten Balangan</h3>
-                    <b> Jl.Jend A.yani Telp/Fax. (0526) 2894137 Kode Pos 71611 Email : e-camat.paringin@gmail.com</b><br>
-                    <img src="<?= base_url('src/') ?>img/logo.blob" style="width: 100px;">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="<?= base_url('src/') ?>img/logo.blob" style="width: 100px;">
+
+                        </div>
+                        <div class="col">
+                            <h3>Selamat Datagg Pada Menu Pelayanan Penduduk Kantor
+                                Kecamatan Paringin Kabupaten Balangan</h3>
+                            <b> Jl.Jend A.yani Telp/Fax. (0526) 2894137 Kode Pos 71611 Email : e-camat.paringin@gmail.com</b><br>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,7 +194,7 @@
                                 <div class="card-body">
                                     <form action="<?= base_url('User/proses/' . $data_user['id_penduduk']); ?>" method="post" enctype="multipart/form-data">
                                         Silahkan Pilih Pelayanan :
-                                        <div class="input-group mb-3">
+                                        <div class="input-group">
                                             <select id="select" name="pelayanan" class="form-select" required>
                                                 <option value="" selected>Silahkan Pilih Kebutuhan </option>
                                                 <option value="Pembuatan Ktp">Pembuatan Ktp</option>
@@ -200,6 +208,12 @@
                                                 <option value="Pembuatan Surat Tidak Mampu">Pembuatan Surat Tidak Mampu</option>
                                             </select>
                                         </div>
+                                        <!-- <div id="selectedResult" class="mb-3"></div> -->
+                                        <div class="mb-3 mt-1">
+                                            <textarea class="form-control" id="selectedResult" rows="3" readonly></textarea>
+                                        </div>
+
+
                                         Deskripsi Tambahan :
                                         <div class="form-floating mb-2">
                                             <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
@@ -338,4 +352,29 @@
 
 </div>
 
+<script>
+    // Mengambil elemen select dan div hasil
+    const selectElement = document.getElementById('select');
+    const resultDiv = document.getElementById('selectedResult');
+
+    // Menambahkan event listener untuk mengakses nilai saat pilihan diubah
+    selectElement.addEventListener('change', function() {
+        // Mendapatkan nilai yang dipilih dari elemen select
+        const selectedValue = this.value;
+
+        // Memperbarui konten div hasil berdasarkan nilai yang dipilih menggunakan operator ternary
+        resultDiv.textContent =
+            selectedValue === 'Pembuatan Ktp' ? 'Data yang dibutuhkan\r\n- Fotocopy KTP\n- Pas Photo 3x4' :
+            selectedValue === 'Pembuatan KK' ? 'Data yang dibutuhkan\n- Fotocopy KTP suami/istri\n- Fotocopy akta nikah' :
+            selectedValue === 'Pembuatan Surat Kelahiran' ? 'Data yang dibutuhkan\n- Fotocopy KTP orang tua\n- Fotocopy akta nikah' :
+            selectedValue === 'Pembuatan Surat Kematian' ? 'Data yang dibutuhkan\n- Fotocopy KTP ahli waris\n- Fotocopy akta kematian' :
+            selectedValue === 'Pembuatan Surat Pindah' ? 'Data yang dibutuhkan\n- Fotocopy KTP pemohon\n- Fotocopy KTP yang akan ditinggalkan' :
+            selectedValue === 'Pembuatan Surat Datang' ? 'Data yang dibutuhkan\n- Fotocopy KTP pemohon\n- Surat keterangan datang dari desa/kelurahan asal' :
+            selectedValue === 'Pembuatan Surat Ahliwari' ? 'Data yang dibutuhkan\n- Fotocopy KTP pemohon\n- Fotocopy KTP ahli waris' :
+            selectedValue === 'Pembuatan Surat Izin Usaha' ? 'Data yang dibutuhkan\n- Fotocopy KTP pemohon\n- Surat izin usaha dari instansi terkait' :
+            selectedValue === 'Pembuatan Surat Tidak Mampu' ? 'Data yang dibutuhkan\n- Fotocopy KTP pemohon\n- Surat keterangan tidak mampu dari RT/RW' :
+            '';
+    });
+</script>
 <?= $this->include('penduduk/nav/foot'); ?>
+

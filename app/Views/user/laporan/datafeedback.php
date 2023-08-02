@@ -19,6 +19,7 @@
                     <th>Kategori</th>
                     <th>Isi</th>
                     <th>Disampaikan Pada</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,9 @@
                         </td>
                         <td>
                             <?= $pe['created_at']; ?>
+                        </td>
+                        <td>
+                            <?= $pe['status']; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

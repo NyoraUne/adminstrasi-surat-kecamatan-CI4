@@ -10,6 +10,9 @@
                         <th>Kategori</th>
                         <th>Isi</th>
                         <th>Disampaikan Pada</th>
+                        <th>Status</th>
+                        <th>Telah Selesai</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +24,11 @@
                             <td><?= $feedback['kategori']; ?></td>
                             <td><?= $feedback['isi']; ?></td>
                             <td><?= $feedback['created_at']; ?></td>
+                            <td><?= $feedback['status']; ?></td>
+                            <td><?= $feedback['end']; ?></td>
+                            <td>
+                                <a href="<?= base_url('Feedback/detail/' . $feedback['id_feedback']); ?>" class="btn btn-ssm btn-outline-info">Detail</a>
+                            </td>
                         </tr>
 
                     <?php endforeach; ?>
